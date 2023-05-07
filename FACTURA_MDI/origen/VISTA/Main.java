@@ -10,7 +10,8 @@ public class Main {
         //log_fac.setVisible(true);
         menufac men = new menufac();
         men.setVisible(true);
-        //rueba
+        //rue
+        //ht/tps://github.com/luis0509/Factura_Gran_Soldador.git
     }
     
 }
