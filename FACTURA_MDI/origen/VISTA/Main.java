@@ -12,6 +12,7 @@ public class Main {
         men.setVisible(true);
         //rue
         //ht/tps://github.com/luis0509/Factura_Gran_Soldador.git
+        //prueba2
     }
     
 }
