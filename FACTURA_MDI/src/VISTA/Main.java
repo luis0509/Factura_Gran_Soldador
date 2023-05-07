@@ -10,7 +10,7 @@ public class Main {
         //log_fac.setVisible(true);
         menufac men = new menufac();
         men.setVisible(true);
-        //prueba de comentario
+        
     }
     
 }
