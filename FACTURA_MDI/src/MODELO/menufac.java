@@ -1,11 +1,9 @@
 package MODELO;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import static javafx.scene.paint.Color.color;
 import javax.swing.ImageIcon;
 
 public class menufac extends javax.swing.JFrame {
