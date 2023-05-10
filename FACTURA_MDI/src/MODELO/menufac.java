@@ -41,6 +41,16 @@ public class menufac extends javax.swing.JFrame {
         lbl_fondogransol.setText("");
         
         
+        lbl_info.setText("POR FAVOR ESCOGE UNA DE LAS OPCIONES QUE HAY");
+        lbl_info.setFont(new java.awt.Font("Tahoma",3,13));
+        lbl_info.setForeground(Color.white);
+        lbl_info.setLocation(40, 100);
+        lbl_info.setSize(500, 60);
+        lbl_info2.setText(" DISPONIBLES EN EL APARTADO DE VENTANA");
+        lbl_info2.setFont(new java.awt.Font("Tahoma",3,13));
+        lbl_info2.setForeground(Color.white);
+        lbl_info2.setLocation(60, 150);
+        lbl_info2.setSize(500, 60);   
     }
     
     public void menuventana(){
