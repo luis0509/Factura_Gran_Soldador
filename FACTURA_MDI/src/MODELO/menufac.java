@@ -113,6 +113,8 @@ public class menufac extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JDesktopPane();
         lbl_titigran = new javax.swing.JLabel();
+        lbl_info = new javax.swing.JLabel();
+        lbl_info2 = new javax.swing.JLabel();
         lbl_fondogransol = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -127,7 +129,15 @@ public class menufac extends javax.swing.JFrame {
 
         lbl_titigran.setText("jLabel1");
         desktopPane.add(lbl_titigran);
-        lbl_titigran.setBounds(170, 50, 34, 14);
+        lbl_titigran.setBounds(170, 50, 41, 16);
+
+        lbl_info.setText("jLabel1");
+        desktopPane.add(lbl_info);
+        lbl_info.setBounds(160, 120, 41, 16);
+
+        lbl_info2.setText("jLabel2");
+        desktopPane.add(lbl_info2);
+        lbl_info2.setBounds(160, 160, 41, 16);
 
         lbl_fondogransol.setText("jLabel1");
         desktopPane.add(lbl_fondogransol);
@@ -198,6 +208,8 @@ public class menufac extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel lbl_fondogransol;
+    private javax.swing.JLabel lbl_info;
+    private javax.swing.JLabel lbl_info2;
     private javax.swing.JLabel lbl_titigran;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuvent;
