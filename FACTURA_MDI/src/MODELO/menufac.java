@@ -1,106 +1,190 @@
 package MODELO;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 
 public class menufac extends javax.swing.JFrame {
+    
+     final int ancho = 300, alto = 140;
+    int[] id = {1, 2, 3, 4};
+    String[] ruta = {"/Imagenes/minimarket.jpg"};
 
-    public static int anchofond=450, altofond=300;
+    public static String[] selec = {"Efectivo", "Tarjeta D."};
+
+    public static ArrayList<String> productos = new ArrayList<>();
+
     public menufac() {
-        setLocation(500, 100);
+        
+         setTitle("Facturacion");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(new Dimension(300, 500));
+        setLocationRelativeTo(null);
+        
+        Image facImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/minimarket.jpg"));
+        setIconImage(facImage);//AGREGAR IMAGEN A UN JLABEL A UN LADO COMO PRESENTACION
+        
+        //setLocation(500, 100);
+        
         initComponents();
-        menuitem();
-        menuventana();
-        titgransol();
-        fondo();
-        Image facImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/gransol.jpg"));
-        setIconImage(facImage);
-    }
+        
+         getContentPane().setBackground(Color.GRAY);
 
-    public void titgransol(){
-        lbl_titigran.setText("MINIMARKET GRAN SOLDADOR");
-        lbl_titigran.setFont(new java.awt.Font("Tahoma",3,23));
-        lbl_titigran.setLocation(10, 5);
-        lbl_titigran.setSize(500, 60);
-        lbl_titigran.setForeground(Color.CYAN);
+        setLocation(200, 50);//Centrar o Ubicar Ventana
+        stev_c();
+        tabla();
+    }
+    DefaultTableModel tabla_st;
+    private void tabla(){
+        //DefaultTableModel tabla_st = new DefaultTableModel();
+        tabla_st=new DefaultTableModel();
+        tabla_st.addColumn("ID");
+        tabla_st.addColumn("Nombre");
+        tabla_st.addColumn("Precio");
+        tabla_st.addColumn("IVA");
+        tabla_st.addColumn("Peso");
+        this.jTable3.setModel(tabla_st);
+        
+        
+        
+        jTable3.setVisible(true);
+        jTable3.setModel(tabla_st);
     }
     
-    
-    public void fondo(){
-        ImageIcon imafond = new
-        ImageIcon(getClass().getResource("/IMAG/gransol.jpg"));
-        ImageIcon mitadfond = new
-        ImageIcon(imafond.getImage().getScaledInstance(anchofond,altofond,
-        Image.SCALE_DEFAULT));
-        lbl_fondogransol.setIcon(mitadfond);
-        lbl_fondogransol.setText("");
-        
-        
-        lbl_info.setText("POR FAVOR ESCOGE UNA DE LAS OPCIONES QUE HAY");
-        lbl_info.setFont(new java.awt.Font("Tahoma",3,13));
-        lbl_info.setForeground(Color.white);
-        lbl_info.setLocation(40, 100);
-        lbl_info.setSize(500, 60);
-        lbl_info2.setText(" DISPONIBLES EN EL APARTADO DE VENTANA");
-        lbl_info2.setFont(new java.awt.Font("Tahoma",3,13));
-        lbl_info2.setForeground(Color.white);
-        lbl_info2.setLocation(60, 150);
-        lbl_info2.setSize(500, 60);   
+    private void stev_c(){
+         
+        btnFact1.setToolTipText("Clik para buscar Cliente");
+        btnFact2.setToolTipText("Clik para buscar Producto");
+        btnFact3.setToolTipText("Clik para Aceptar Compra");
+        btnFact4.setToolTipText("Clik para Cancelar Compra");
+        btnFact5.setToolTipText("Clik para Salir de Ventana");
+
+        ImageIcon foto = new ImageIcon(getClass().getResource(ruta[0]));
+        ImageIcon mitad = new ImageIcon(foto.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+        lblImage.setIcon(mitad);
+
+        cmxFact1.removeAllItems();//Limpiar el combobox 
+        for (String sele : selec) {//
+            cmxFact1.addItem(sele);
+
+//        Border line = BorderFactory.createLineBorder(Color.yellow);
+        }
+//AGREGANDO TITULOS A LOS LABEL (ETIQUETAS)
+        lblFact1.setText("MINI MARKET");
+        lblFact1.setFont(new Font("Arial", Font.BOLD, 25));
+        lblFact1.setForeground(Color.cyan);
+
+        lblFact2.setText("Calle 10 # 25-10");
+        lblFact2.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact2.setForeground(Color.BLACK);
+
+        lblFact3.setText("Tel: 3214596070");
+        lblFact3.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact3.setForeground(Color.BLACK);
+
+        lblFact4.setText("Cali/Valle");
+        lblFact4.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact4.setForeground(Color.BLACK);
+
+        lblFact5.setText("No. Factura");
+        lblFact5.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact5.setForeground(Color.BLACK);
+
+        lblFact6.setText("No. identificacion");
+        lblFact6.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact6.setForeground(Color.BLACK);
+
+        lblFact7.setText("Nombre Cliente");
+        lblFact7.setFont(new Font("Arial", Font.BOLD, 15));
+        lblFact7.setForeground(Color.BLACK);
+
+        lblFact8.setText("Numero Cliente");
+        lblFact8.setFont(new Font("Arial", Font.BOLD, 15));
+        lblFact8.setForeground(Color.BLACK);
+
+        lblFact9.setText("Direccion Cliente");
+        lblFact9.setFont(new Font("Arial", Font.BOLD, 15));
+        lblFact9.setForeground(Color.BLACK);
+
+        lblFact11.setText("Tipo Pago");
+        lblFact11.setFont(new Font("Arial", Font.BOLD, 15));
+        lblFact11.setForeground(Color.BLACK);
+
+        lblFact12.setText("Sub Total");
+        lblFact12.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact12.setForeground(Color.BLACK);
+
+        lblFact13.setText("Descuento");
+        lblFact13.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact13.setForeground(Color.BLACK);
+
+        lblFact14.setText("Iva");
+        lblFact14.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact14.setForeground(Color.BLACK);
+
+        lblFact15.setText("Pago Total");
+        lblFact15.setFont(new Font("Arial", Font.BOLD, 18));
+        lblFact15.setForeground(Color.BLACK);
+
+        //AGREGANDO TITULOS A LOS TEXTOS PARA DAR AVISO EH INGRESAR DATOS   
+        txtFact2.setText("Identificacion");
+        txtFact2.setForeground(Color.LIGHT_GRAY);
+        txtFact2.setPreferredSize(new Dimension(125, 25));
+
+        txtFact3.setText("Ingrese Nombre");
+        txtFact3.setForeground(Color.LIGHT_GRAY);
+        txtFact3.setPreferredSize(new Dimension(125, 25));
+
+        txtFact4.setText("Ingrese Telefono");
+        txtFact4.setForeground(Color.LIGHT_GRAY);
+        txtFact4.setPreferredSize(new Dimension(125, 25));
+
+        txtFact5.setText("Ingrese Direccion");
+        txtFact5.setForeground(Color.LIGHT_GRAY);
+        txtFact5.setPreferredSize(new Dimension(125, 25));
+
+        txtFact6.setText("Ingrese Codigo");
+        txtFact6.setForeground(Color.LIGHT_GRAY);
+        txtFact6.setPreferredSize(new Dimension(125, 25));
+
+        //CAJAS DE TEXTO PRECIOS PONER EN BLANCO
+        txtFact1.setText(" ");
+        txtFact7.setText(" ");
+        txtFact8.setText(" ");
+        txtFact9.setText(" ");
+        txtFact10.setText(" ");
+
+        //AGREGAR TEXTOS A LOS BOTONES
+        btnFact1.setText("Buscar Cliente");
+        btnFact1.setFont(new Font("Arial", Font.BOLD, 18));
+        btnFact1.setBackground(Color.GREEN);
+
+        btnFact2.setText("Buscar Codigo Pro");
+        btnFact2.setFont(new Font("Arial", Font.BOLD, 18));
+        btnFact2.setBackground(Color.BLUE);
+
+        btnFact3.setText("Aceptar");
+        btnFact3.setFont(new Font("Arial", Font.BOLD, 18));
+        btnFact3.setBackground(Color.ORANGE);
+
+        btnFact4.setText("Cancelar");
+        btnFact4.setFont(new Font("Arial", Font.BOLD, 18));
+        btnFact4.setBackground(Color.YELLOW);
+
+        btnFact5.setText("Salir");
+        btnFact5.setFont(new Font("Arial", Font.BOLD, 18));
+        btnFact5.setBackground(Color.RED);
     }
-    
-    public void menuventana(){
-        menuvent.setText("Ventana");
-        menuvent.setMnemonic('V');
-        menuBar.add(menuvent);
-        menuvent.add(contvent1);
-        menuvent.add(contvent2);
-        menuvent.add(contvent3);
         
-                
-                
-        contvent1.setText("Clientes");
-        contvent1.setMnemonic('C');
-        contvent2.setText("Productos");
-        contvent2.setMnemonic('P');
-        contvent3.setText("Facturacion");
-        contvent3.setMnemonic('F');
-        
-        
-        
-    }
-    
-    public void menuitem(){//Inicio menuitem
-        
-        fileMenu.setText("Opciones");
-        fileMenu.setMnemonic('O');
-        fileMenu.add(mi_cerrSes);
-        fileMenu.add(exitMenuItem);
-        
-        
-        
-        
-        mi_cerrSes.setText("Cerrar Sesion");
-        mi_cerrSes.setMnemonic('C');
-        mi_cerrSes.addActionListener(new java.awt.event.ActionListener() {           
-            public void actionPerformed(ActionEvent ae) {
-                login log = new login();
-                log.setVisible(true);
-                dispose();
-            }
-        });
-        
-        exitMenuItem.setMnemonic('S');
-        exitMenuItem.setText("Salir");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });    
-            
-    }//Final menuitem 
+         
+   
        
     
     
@@ -136,9 +220,6 @@ public class menufac extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         menuBar = new javax.swing.JMenuBar();
@@ -239,20 +320,6 @@ public class menufac extends javax.swing.JFrame {
         jTextField10.setText("jTextField10");
         getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 383, 117, -1));
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 461, -1, 36));
-
-        jButton3.setText("jButton3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 461, -1, 36));
-
-        jButton4.setText("jButton4");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 461, -1, 36));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -309,12 +376,8 @@ public class menufac extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
+        
     }//GEN-LAST:event_exitMenuItemActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
@@ -329,9 +392,6 @@ public class menufac extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
