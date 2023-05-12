@@ -55,8 +55,7 @@ null, ex);
  public void createTable(String name) {
  try {
  String Query = "CREATE TABLE " + name + ""
- + "(ID VARCHAR(25),Nombre VARCHAR(50),
-Apellido VARCHAR(50),"
+ + "(ID VARCHAR(25),Nombre VARCHAR(50),Apellido VARCHAR(50),"
  + " Edad VARCHAR(3), Sexo VARCHAR(1))";
  JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + name + " de forma exitosa");
  Statement st = Conexion.createStatement();
