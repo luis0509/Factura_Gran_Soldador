@@ -203,12 +203,12 @@ public class login extends javax.swing.JFrame {
         String pass = new String(jp_clave.getPassword());
         if (jt_user.getText().equals(Users.usr1) && pass.equals(Users.clave1)){
             JOptionPane.showMessageDialog(this,"ACCESO CORRECTO");
-            menufac menf = new menufac();
+            menMarket menf = new menMarket();
             menf.setVisible(true);
             this.dispose();
         }else if (jt_user.getText().equals(Users.usr2) && pass.equals(Users.clave2)){
             JOptionPane.showMessageDialog(this,"ACCESO CORRECTO");
-            menufac menf = new menufac();
+            menMarket menf = new menMarket();
             menf.setVisible(true);
             this.dispose();
         }else{
