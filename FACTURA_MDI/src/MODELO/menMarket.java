@@ -20,7 +20,7 @@ import javax.swing.ImageIcon;
  * @author Usuario1
  */
 public class menMarket extends javax.swing.JFrame {
-    
+    mysql_conect db2 = new mysql_conect();
      public static int anchofond=400, altofond=400;
      
     public menMarket() {        
@@ -105,7 +105,8 @@ public class menMarket extends javax.swing.JFrame {
         mi_cerrSes.setText("Cerrar Sesion");
         mi_cerrSes.setMnemonic('C');
         mi_cerrSes.addActionListener(new java.awt.event.ActionListener() {           
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent ae) { 
+                db2.closeConnection();
                 login log = new login();
                 log.setVisible(true);
                 dispose();
