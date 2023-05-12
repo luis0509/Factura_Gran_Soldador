@@ -27,7 +27,7 @@ public class mysql_conect {
     public void closeConnection() {
         try {
             Conexion.close();
-            System.out.println("Se ha finalizado la conexión con el servidor");
+            JOptionPane.showMessageDialog(null,"Se ha finalizado la conexión con el servidor");
         } catch (SQLException ex) {
             Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
         }
