@@ -86,7 +86,7 @@ mysql_conect db = new mysql_conect();
         btn_sal.setBackground(Color.blue);
         btn_sal.setForeground(Color.LIGHT_GRAY);
         btn_sal.addActionListener(new java.awt.event.ActionListener() {            
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent ae) {                
                 System.exit(0);
             }
         });
@@ -203,7 +203,7 @@ mysql_conect db = new mysql_conect();
         String pass = new String(jp_clave.getPassword());
         if (jt_user.getText().equals(Users.usr1) && pass.equals(Users.clave1)){
             JOptionPane.showMessageDialog(this,"ACCESO CORRECTO");
-            db.MySQLConnection("root", "", "ba_gransoldi");
+            db.MySQLConnection("root", "", "ba_gransoldi");            
             menMarket menf = new menMarket();
             menf.setVisible(true);
             this.dispose();
