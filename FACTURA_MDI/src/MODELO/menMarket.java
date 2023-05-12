@@ -6,6 +6,7 @@
 package MODELO;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -20,10 +21,10 @@ import javax.swing.ImageIcon;
  */
 public class menMarket extends javax.swing.JFrame {
     
-     public static int anchofond=450, altofond=300;
+     public static int anchofond=500, altofond=400;
      
-    public menMarket() {
-        setLocation(500, 100);
+    public menMarket() {        
+        setLocation(700, 300);
         initComponents();
         menuitem();
         menuventana();
@@ -34,10 +35,16 @@ public class menMarket extends javax.swing.JFrame {
     }
 
     public void titgransol(){
+        jp_menfac.setLocation(500, 100);
+        jp_menfac.add(lbl_titigran);
+        jp_menfac.add(lbl_info);
+        jp_menfac.add(lbl_info2);
+        jp_menfac.add(lbl_fondogransol);
+        
         lbl_titigran.setText("MINIMARKET GRAN SOLDADOR");
-        lbl_titigran.setFont(new java.awt.Font("Tahoma",3,23));
-        lbl_titigran.setLocation(10, 5);
-        lbl_titigran.setSize(500, 60);
+        lbl_titigran.setFont(new java.awt.Font("Tahoma",3,18));
+        lbl_titigran.setLocation(50, 5);
+        lbl_titigran.setSize(500, 60);        
         lbl_titigran.setForeground(Color.CYAN);
     }
     
@@ -129,6 +136,7 @@ public class menMarket extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jp_menfac = new javax.swing.JPanel();
         lbl_titigran = new javax.swing.JLabel();
         lbl_info = new javax.swing.JLabel();
         lbl_info2 = new javax.swing.JLabel();
@@ -146,16 +154,46 @@ public class menMarket extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_titigran.setText("jLabel2");
-        getContentPane().add(lbl_titigran, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 110, -1));
 
         lbl_info.setText("jLabel3");
-        getContentPane().add(lbl_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 220, -1));
 
         lbl_info2.setText("jLabel1");
-        getContentPane().add(lbl_info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 220, -1));
 
-        lbl_fondogransol.setText("jLabel1");
-        getContentPane().add(lbl_fondogransol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 279));
+        javax.swing.GroupLayout jp_menfacLayout = new javax.swing.GroupLayout(jp_menfac);
+        jp_menfac.setLayout(jp_menfacLayout);
+        jp_menfacLayout.setHorizontalGroup(
+            jp_menfacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_menfacLayout.createSequentialGroup()
+                .addGroup(jp_menfacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_info2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp_menfacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jp_menfacLayout.createSequentialGroup()
+                            .addGap(129, 129, 129)
+                            .addComponent(lbl_titigran, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jp_menfacLayout.createSequentialGroup()
+                            .addGap(115, 115, 115)
+                            .addComponent(lbl_info, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(55, Short.MAX_VALUE))
+            .addGroup(jp_menfacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lbl_fondogransol, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
+        );
+        jp_menfacLayout.setVerticalGroup(
+            jp_menfacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_menfacLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lbl_titigran)
+                .addGap(111, 111, 111)
+                .addComponent(lbl_info)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_info2)
+                .addContainerGap(166, Short.MAX_VALUE))
+            .addGroup(jp_menfacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_menfacLayout.createSequentialGroup()
+                    .addComponent(lbl_fondogransol, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(jp_menfac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 320));
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -243,6 +281,7 @@ public class menMarket extends javax.swing.JFrame {
     private javax.swing.JMenuItem contvent3;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JPanel jp_menfac;
     private javax.swing.JLabel lbl_fondogransol;
     private javax.swing.JLabel lbl_info;
     private javax.swing.JLabel lbl_info2;
