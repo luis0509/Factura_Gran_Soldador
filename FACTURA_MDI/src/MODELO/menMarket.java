@@ -21,7 +21,7 @@ import javax.swing.ImageIcon;
  */
 public class menMarket extends javax.swing.JFrame {
     
-     public static int anchofond=500, altofond=400;
+     public static int anchofond=400, altofond=400;
      
     public menMarket() {        
         setLocation(700, 300);
