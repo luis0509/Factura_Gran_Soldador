@@ -7,112 +7,104 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 public class mysql_conect {
-    
- private static Connection Conexion;
- 
- public void MySQLConnection(String user, String pass,
-String db_name) {
- try {
- Class.forName("org.gjt.mm.mysql.Driver");
- Conexion =
-DriverManager.getConnection("jdbc:mysql://localhost/" +
-db_name, user, pass);
- System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
- } catch (ClassNotFoundException ex) {
 
-Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE,
-null, ex);
- } catch (SQLException ex) {
+    private static Connection Conexion;
 
-Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE,
-null, ex);
- }
- }
- public void closeConnection() {
- try {
- Conexion.close();
- System.out.println("Se ha finalizado la conexión con el servidor");
- } catch (SQLException ex) {
+    public void MySQLConnection(String user, String pass, String ba_gransoldi) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/BD_gransoldi", user, pass);
+            System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE,
-null, ex);
- }
- }
- public void createDB(String name) {
- try {
- String Query = "CREATE DATABASE " + name;
- Statement st = Conexion.createStatement();
- st.executeUpdate(Query);
- MySQLConnection("root", "root", name);
- JOptionPane.showMessageDialog(null, "Se ha creado la base de datos " + name + " de forma exitosa");
- } catch (SQLException ex) {
+    public void closeConnection() {
+        try {
+            Conexion.close();
+            System.out.println("Se ha finalizado la conexión con el servidor");
+        } catch (SQLException ex) {
+            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE,
-null, ex);
- }
- }
- public void createTable(String name) {
- try {
- String Query = "CREATE TABLE " + name + ""
- + "(ID VARCHAR(25),Nombre VARCHAR(50),Apellido VARCHAR(50),"
- + " Edad VARCHAR(3), Sexo VARCHAR(1))";
- JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + name + " de forma exitosa");
- Statement st = Conexion.createStatement();
- st.executeUpdate(Query);
- } catch (SQLException ex) {
+    public void createDB(String ba_gransoldi) {
+        try {
+            String Query = "CREATE DATABASE " + ba_gransoldi;
+            Statement st = Conexion.createStatement();
+            st.executeUpdate(Query);
+            MySQLConnection("root", "", ba_gransoldi);
+            JOptionPane.showMessageDialog(null, "Se ha creado la base de datos " + ba_gransoldi + " de forma exitosa");
+        } catch (SQLException ex) {
+            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE,
-null, ex);
- }
- }
- public void insertData(String table_name, String ID, String
-name, String lastname, String age, String genero) {
- try {
- String Query = "INSERT INTO " + table_name + "
-VALUES("
- + "\"" + ID + "\", "
- + "\"" + name + "\", "
- + "\"" + lastname + "\", "
- + "\"" + age + "\", "
- + "\"" + genero + "\")";
- Statement st = Conexion.createStatement();
- st.executeUpdate(Query);
- JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
- } catch (SQLException ex) {
- System.out.println(ex.getMessage());
- JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos");
- }
- }
- public void getValues(String table_name) {
- try {
- String Query = "SELECT * FROM " + table_name;
- Statement st = Conexion.createStatement();
- java.sql.ResultSet resultSet;
- resultSet = st.executeQuery(Query);
- while (resultSet.next()) {
- System.out.println("ID: " +
-resultSet.getString("ID") + " "
- + "Nombre: " +
-resultSet.getString("Nombre") + " " +
-resultSet.getString("Apellido") + " "
- + "Edad: " + resultSet.getString("Edad") + "
-"
- + "Sexo: " + resultSet.getString("Sexo"));
- }
- } catch (SQLException ex) {
- JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
- }
- }
- public void deleteRecord(String table_name, String ID) {
- try {
- String Query = "DELETE FROM " + table_name + "
-WHERE ID = \"" + ID + "\"";
- Statement st = Conexion.createStatement();
- st.executeUpdate(Query);
- } catch (SQLException ex) {
- System.out.println(ex.getMessage());
- JOptionPane.showMessageDialog(null, "Error borrando el registro especificado");
- }
- }
+    public void createTable(String clientes) {
+        try {
+            String Query = "CREATE TABLE " + clientes + ""
+                    + "(ID VARCHAR(25),Nombre VARCHAR(50), Apellido VARCHAR(50),"
+                    + " Edad VARCHAR(3), Donativo VARCHAR(1))";
+            JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + clientes + " de forma exitosa");
+            Statement st = Conexion.createStatement();
+            st.executeUpdate(Query);
+        } catch (SQLException ex) {
+            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void insertData(String clientes, int CC_cliente, char Nombre, char Apellido, char Direccion, char Celular) {
+        try {
+            String Query = "INSERT INTO " + clientes + " VALUES("
+                    + "\"" + CC_cliente + "\", "
+                    + "\"" + Nombre + "\", "
+                    + "\"" + Apellido + "\", "
+                    + "\"" + Direccion + "\", "
+                    + "\"" + Celular + "\")";
+            Statement st = Conexion.createStatement();
+            st.executeUpdate(Query);            
+            JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos");
+        }
+    }
+
+    public void getValues(String donantes) {
+        try {
+            String Query = "SELECT * FROM " + donantes;
+            Statement st = Conexion.createStatement();
+            java.sql.ResultSet resultSet;
+            resultSet = st.executeQuery(Query);
+
+            while (resultSet.next()) {
+                JOptionPane.showMessageDialog(null,"Id_Donantes: " + resultSet.getString("Id_Donantes") + " "
+                        + "Nombre: " + resultSet.getString("Nombre") + " "
+                        + "Apellido: " + resultSet.getString("Apellido") + " "
+                        + "Edad: " + resultSet.getString("Edad") + " ");
+                        //+ "Donativo: " + resultSet.getString("Donativo"));
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
+        }
+    }
+
+    public void deleteRecord(String donantes, String Id_donantes) {
+        try {
+            String Query = "DELETE FROM " + donantes + " WHERE Id_donantes = \"" + Id_donantes + "\"";
+            Statement st = Conexion.createStatement();
+            st.executeUpdate(Query);
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error borrando el registro especificado");
+        }
+    }
+
 }
