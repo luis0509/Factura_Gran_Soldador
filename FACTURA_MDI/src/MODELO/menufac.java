@@ -31,7 +31,7 @@ public class menufac extends javax.swing.JFrame {
         Image facImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/minimarket.jpg"));
         setIconImage(facImage);//AGREGAR IMAGEN A UN JLABEL A UN LADO COMO PRESENTACION
         
-        //setLocation(500, 100);
+        setLocation(500, 100);
         
         initComponents();
         
