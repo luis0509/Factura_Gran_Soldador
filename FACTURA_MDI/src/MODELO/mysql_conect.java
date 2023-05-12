@@ -16,7 +16,7 @@ public class mysql_conect {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/ba_gransoldi", user, pass);
-            System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
+            JOptionPane.showMessageDialog(null,"Se ha iniciado la conexión con el servidor de forma exitosa");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
