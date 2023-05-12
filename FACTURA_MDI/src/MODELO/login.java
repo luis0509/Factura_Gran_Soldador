@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 
 public class login extends javax.swing.JFrame {
-
+mysql_conect db = new mysql_conect();        
   public static int anchofond=130, altofond=80;
   public static int anchofond2=450, altofond2=300;
     public login() {
@@ -203,6 +203,7 @@ public class login extends javax.swing.JFrame {
         String pass = new String(jp_clave.getPassword());
         if (jt_user.getText().equals(Users.usr1) && pass.equals(Users.clave1)){
             JOptionPane.showMessageDialog(this,"ACCESO CORRECTO");
+            db.MySQLConnection("root", "", "ba_gransoldi");
             menMarket menf = new menMarket();
             menf.setVisible(true);
             this.dispose();
