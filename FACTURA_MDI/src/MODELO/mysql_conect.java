@@ -15,7 +15,7 @@ public class mysql_conect {
     public void MySQLConnection(String user, String pass, String ba_gransoldi) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/BD_gransoldi", user, pass);
+            Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/ba_gransoldi", user, pass);
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
@@ -75,9 +75,9 @@ public class mysql_conect {
         }
     }
 
-    public void getValues(String donantes) {
+    public void getValues(String clientes) {
         try {
-            String Query = "SELECT * FROM " + donantes;
+            String Query = "SELECT * FROM " + clientes;
             Statement st = Conexion.createStatement();
             java.sql.ResultSet resultSet;
             resultSet = st.executeQuery(Query);
