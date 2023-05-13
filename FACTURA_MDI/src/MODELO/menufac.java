@@ -40,6 +40,7 @@ public class menufac extends javax.swing.JFrame {
         setLocation(200, 50);//Centrar o Ubicar Ventana
         stev_c();
         tabla();
+        salir_men();
     }
     DefaultTableModel tabla_st;
     private void tabla(){
@@ -56,6 +57,21 @@ public class menufac extends javax.swing.JFrame {
         
 //        jTable3.setVisible(true); REVISAR
 //        jTable3.setModel(tabla_st); REVISAR
+    }
+    public void salir_men(){
+       menu_factura.setText("OPCIONES");
+       menu_factura.setMnemonic('O');
+       menu_factura.add(btn_salfactura);
+       
+       btn_salfactura.setText("Salir");
+       btn_salfactura.setMnemonic('S');
+       btn_salfactura.addActionListener(new java.awt.event.ActionListener() {           
+            public void actionPerformed(ActionEvent ae) { 
+                menMarket mK = new menMarket();
+                mK.setVisible(true);
+                dispose();
+            }
+        });
     }
     
     private void stev_c(){
@@ -223,13 +239,8 @@ public class menufac extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btnFact2 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        mi_cerrSes = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        menuvent = new javax.swing.JMenu();
-        contvent1 = new javax.swing.JMenuItem();
-        contvent2 = new javax.swing.JMenuItem();
-        contvent3 = new javax.swing.JMenuItem();
+        menu_factura = new javax.swing.JMenu();
+        btn_salfactura = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -340,49 +351,28 @@ public class menufac extends javax.swing.JFrame {
         btnFact2.setText("jButton1");
         getContentPane().add(btnFact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 257, 100, -1));
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        menu_factura.setMnemonic('f');
+        menu_factura.setText("File");
 
-        mi_cerrSes.setMnemonic('o');
-        mi_cerrSes.setText("Open");
-        fileMenu.add(mi_cerrSes);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        btn_salfactura.setMnemonic('x');
+        btn_salfactura.setText("Exit");
+        btn_salfactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                btn_salfacturaActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        menu_factura.add(btn_salfactura);
 
-        menuBar.add(fileMenu);
-
-        menuvent.setMnemonic('h');
-        menuvent.setText("Help");
-
-        contvent1.setMnemonic('c');
-        contvent1.setText("Contents");
-        menuvent.add(contvent1);
-
-        contvent2.setMnemonic('c');
-        contvent2.setText("Contents");
-        menuvent.add(contvent2);
-
-        contvent3.setMnemonic('c');
-        contvent3.setText("Contents");
-        menuvent.add(contvent3);
-
-        menuBar.add(menuvent);
+        menuBar.add(menu_factura);
 
         setJMenuBar(menuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void btn_salfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salfacturaActionPerformed
         
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }//GEN-LAST:event_btn_salfacturaActionPerformed
 
     private void txtFact10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFact10ActionPerformed
         // TODO add your handling code here:
@@ -397,12 +387,8 @@ public class menufac extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFact1;
     private javax.swing.JButton btnFact2;
+    private javax.swing.JMenuItem btn_salfactura;
     private javax.swing.JComboBox<String> cmxFact1;
-    private javax.swing.JMenuItem contvent1;
-    private javax.swing.JMenuItem contvent2;
-    private javax.swing.JMenuItem contvent3;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblFact1;
@@ -420,8 +406,7 @@ public class menufac extends javax.swing.JFrame {
     private javax.swing.JLabel lblFact8;
     private javax.swing.JLabel lblFact9;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuvent;
-    private javax.swing.JMenuItem mi_cerrSes;
+    private javax.swing.JMenu menu_factura;
     private javax.swing.JTextField txtFact1;
     private javax.swing.JTextField txtFact10;
     private javax.swing.JTextField txtFact2;
