@@ -74,6 +74,7 @@ public class menufac extends javax.swing.JFrame {
         });
     }
     
+    
     private void stev_c(){
          
         btnFact1.setToolTipText("Clik para buscar Cliente");
