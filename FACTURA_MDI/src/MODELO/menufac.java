@@ -44,19 +44,18 @@ public class menufac extends javax.swing.JFrame {
     }
     DefaultTableModel tabla_st;
     private void tabla(){
-        //DefaultTableModel tabla_st = new DefaultTableModel();
+        
         tabla_st=new DefaultTableModel();
         tabla_st.addColumn("ID");
         tabla_st.addColumn("Nombre");
         tabla_st.addColumn("Precio");
         tabla_st.addColumn("IVA");
-        tabla_st.addColumn("Peso");
-        //this.jTable3.setModel(tabla_st); REVISAR
+        
+        jt_factura.setVisible(true);
+        jt_factura.setModel(tabla_st);
         
         
-        
-//        jTable3.setVisible(true); REVISAR
-//        jTable3.setModel(tabla_st); REVISAR
+
     }
     public void salir_men(){
        menu_factura.setText("OPCIONES");
@@ -73,7 +72,7 @@ public class menufac extends javax.swing.JFrame {
             }
         });
     }
-    
+   
     
     private void stev_c(){
          
@@ -237,7 +236,7 @@ public class menufac extends javax.swing.JFrame {
         txtFact8 = new javax.swing.JTextField();
         txtFact9 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jt_factura = new javax.swing.JTable();
         btnFact2 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menu_factura = new javax.swing.JMenu();
@@ -334,7 +333,7 @@ public class menufac extends javax.swing.JFrame {
         txtFact9.setText("jTextField10");
         getContentPane().add(txtFact9, new org.netbeans.lib.awtextra.AbsoluteConstraints(536, 383, 117, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jt_factura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -345,7 +344,7 @@ public class menufac extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jt_factura);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 295, 400, 220));
 
@@ -391,7 +390,7 @@ public class menufac extends javax.swing.JFrame {
     private javax.swing.JMenuItem btn_salfactura;
     private javax.swing.JComboBox<String> cmxFact1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jt_factura;
     private javax.swing.JLabel lblFact1;
     private javax.swing.JLabel lblFact11;
     private javax.swing.JLabel lblFact12;
