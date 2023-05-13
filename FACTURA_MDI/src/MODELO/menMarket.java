@@ -87,6 +87,13 @@ public class menMarket extends javax.swing.JFrame {
         contvent2.setMnemonic('P');
         contvent3.setText("Facturacion");
         contvent3.setMnemonic('F');
+        contvent3.addActionListener(new java.awt.event.ActionListener() {           
+            public void actionPerformed(ActionEvent ae) {                 
+                menufac mf = new menufac();                        
+                mf.setVisible(true);
+                dispose();
+            }
+        });
         
         
         
