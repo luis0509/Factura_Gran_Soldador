@@ -15,7 +15,7 @@ public class menufac extends javax.swing.JFrame {
     
      final int ancho = 300, alto = 140;
     int[] id = {1, 2, 3, 4};
-    String[] ruta = {"/Imagenes/minimarket.jpg"};
+    String[] ruta = {"/IMAG/gransol4.jpg"};
 
     public static String[] selec = {"Efectivo", "Tarjeta D."};
 
@@ -28,7 +28,7 @@ public class menufac extends javax.swing.JFrame {
         setSize(new Dimension(300, 500));
         setLocationRelativeTo(null);
         
-        Image facImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/minimarket.jpg"));
+        Image facImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/gransol4.jpg"));
         setIconImage(facImage);//AGREGAR IMAGEN A UN JLABEL A UN LADO COMO PRESENTACION
         
         setLocation(500, 100);
