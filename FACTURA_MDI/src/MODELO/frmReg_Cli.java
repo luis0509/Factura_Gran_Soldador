@@ -21,8 +21,8 @@ public class frmReg_Cli extends javax.swing.JFrame {
         setTitle("REGISTROS CLIENTES");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        setLocationRelativeTo(null);
-
+        //setLocationRelativeTo(null);
+        setLocation(500, 100);
         initComponents();
         tabla_ema.addColumn("ID");
         tabla_ema.addColumn("NOMBRE");
@@ -31,29 +31,29 @@ public class frmReg_Cli extends javax.swing.JFrame {
         tabla_ema.addColumn("TELEFONO");
 //        refrescartab();
         ///////////////////////////////////////////
-        Image icono = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/shop.png"));
-        setIconImage(icono);
+        //Image icono = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/gransol.png"));
+        //setIconImage(icono);
 
-        jlbLogo.setIcon(new ImageIcon(icono.getScaledInstance(jlbLogo.getWidth(), jlbLogo.getWidth(), Image.SCALE_SMOOTH)));
-        setSize(new Dimension(998, 550));
+        //jlbLogo.setIcon(new ImageIcon(icono.getScaledInstance(jlbLogo.getWidth(), jlbLogo.getWidth(), Image.SCALE_SMOOTH)));
+        //setSize(new Dimension(998, 550));
 
-        Image iconoAgregar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/nuevo.png"));
-        btNue_cli.setIcon(new ImageIcon(iconoAgregar.getScaledInstance(btNue_cli.getWidth(), btNue_cli.getWidth(), Image.SCALE_SMOOTH)));
+       // Image iconoAgregar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/nuevo.png"));
+        //btNue_cli.setIcon(new ImageIcon(iconoAgregar.getScaledInstance(btNue_cli.getWidth(), btNue_cli.getWidth(), Image.SCALE_SMOOTH)));
         ///////////////////////////////////////////////////
-        Image iconoCancel = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/cancelar.png"));
-        btCancelar.setIcon(new ImageIcon(iconoCancel.getScaledInstance(btCancelar.getWidth(), btCancelar.getWidth(), Image.SCALE_SMOOTH)));
+        //Image iconoCancel = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/cancelar.png"));
+        //btCancelar.setIcon(new ImageIcon(iconoCancel.getScaledInstance(btCancelar.getWidth(), btCancelar.getWidth(), Image.SCALE_SMOOTH)));
         getContentPane().setBackground(Color.cyan);
         ///////////////////////////////////////////////////
-        Image iconoSalir = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/salir.png"));
-        btSalir.setIcon(new ImageIcon(iconoSalir.getScaledInstance(btSalir.getWidth(), btSalir.getWidth(), Image.SCALE_SMOOTH)));
+        //Image iconoSalir = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/salir.png"));
+        //btSalir.setIcon(new ImageIcon(iconoSalir.getScaledInstance(btSalir.getWidth(), btSalir.getWidth(), Image.SCALE_SMOOTH)));
         getContentPane().setBackground(Color.cyan);
         ///////////////////////////////////////////////////
-        Image iconoVertod = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/vertodo.png"));
-        btVer_todo.setIcon(new ImageIcon(iconoVertod.getScaledInstance(btVer_todo.getWidth(), btVer_todo.getWidth(), Image.SCALE_SMOOTH)));
+        //Image iconoVertod = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/vertodo.png"));
+        //btVer_todo.setIcon(new ImageIcon(iconoVertod.getScaledInstance(btVer_todo.getWidth(), btVer_todo.getWidth(), Image.SCALE_SMOOTH)));
         getContentPane().setBackground(Color.cyan);
         ///////////////////////////////////////////////////
-        Image iconoGuardar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/guardar.png"));
-        btGuardar.setIcon(new ImageIcon(iconoGuardar.getScaledInstance(btGuardar.getWidth(), btGuardar.getWidth(), Image.SCALE_SMOOTH)));
+        //Image iconoGuardar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/guardar.png"));
+        //btGuardar.setIcon(new ImageIcon(iconoGuardar.getScaledInstance(btGuardar.getWidth(), btGuardar.getWidth(), Image.SCALE_SMOOTH)));
         getContentPane().setBackground(Color.cyan);
 
         ema();
