@@ -491,8 +491,8 @@ public class frmReg_Cli extends javax.swing.JFrame {
         int sal = JOptionPane.showConfirmDialog(null, "Vas a salir", "Salir", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.WARNING_MESSAGE);
         if (sal == 0) {
-//            ventana fac_s = new ventana();
-//            fac_s.setVisible(true);
+            menMarket mK = new menMarket();
+            mK.setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btSalirActionPerformed
