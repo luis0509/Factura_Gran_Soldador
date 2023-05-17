@@ -536,7 +536,7 @@ public class frmReg_Cli extends javax.swing.JFrame {
             jtTele.setText("Telefono");
             jtTele.setForeground(Color.LIGHT_GRAY);
 
-            dispose();
+            
         }    }//GEN-LAST:event_btCancelarActionPerformed
 
     /**
