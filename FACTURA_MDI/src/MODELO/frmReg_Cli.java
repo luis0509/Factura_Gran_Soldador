@@ -13,51 +13,56 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class frmReg_Cli extends javax.swing.JFrame {
-
+    
     DefaultTableModel tabla_ema = new DefaultTableModel();
     ArrayList<regCliclass> listaCli = new ArrayList<regCliclass>();
-
+    
+    public static int anchofond = 110, altofond = 110;
+    int[] id = {1, 2, 3, 4};
+    String[] ruta = {"/IMAG/gransol2.jpg"};
+    
     public frmReg_Cli() {
+        
         setTitle("REGISTROS CLIENTES");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+        Image regImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/gransol.jpg"));
+        setIconImage(regImage);
         //setLocationRelativeTo(null);
-        setLocation(500, 100);
         initComponents();
+       
+        setLocation(500, 100);
+        ImageIcon fotos = new ImageIcon(getClass().getResource(ruta[0]));
+        ImageIcon mitad = new ImageIcon(fotos.getImage().getScaledInstance(anchofond, altofond, Image.SCALE_DEFAULT));
+        jlb_img.setIcon(mitad);
+        
         tabla_ema.addColumn("ID");
         tabla_ema.addColumn("NOMBRE");
         tabla_ema.addColumn("APELLIDO");
         tabla_ema.addColumn("CIUDAD");
         tabla_ema.addColumn("TELEFONO");
+
 //        refrescartab();
         ///////////////////////////////////////////
-        //Image icono = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/gransol.png"));
-        //setIconImage(icono);
+        Image iconoAgregar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/AGREGAR.png"));
+        btNue_cli.setIcon(new ImageIcon(iconoAgregar.getScaledInstance(btNue_cli.getWidth(), btNue_cli.getWidth(), Image.SCALE_SMOOTH)));
+        /////////////////////////////////////////////////
+        Image iconoCancel = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/CANCELAR.png"));
+        btCancelar.setIcon(new ImageIcon(iconoCancel.getScaledInstance(btCancelar.getWidth(), btCancelar.getWidth(), Image.SCALE_SMOOTH)));
 
-        //jlbLogo.setIcon(new ImageIcon(icono.getScaledInstance(jlbLogo.getWidth(), jlbLogo.getWidth(), Image.SCALE_SMOOTH)));
-        //setSize(new Dimension(998, 550));
+        /////////////////////////////////////////////////
+        Image iconoSalir = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/CERRAR.png"));
+        btSalir.setIcon(new ImageIcon(iconoSalir.getScaledInstance(btSalir.getWidth(), btSalir.getWidth(), Image.SCALE_SMOOTH)));
 
-       // Image iconoAgregar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/nuevo.png"));
-        //btNue_cli.setIcon(new ImageIcon(iconoAgregar.getScaledInstance(btNue_cli.getWidth(), btNue_cli.getWidth(), Image.SCALE_SMOOTH)));
-        ///////////////////////////////////////////////////
-        //Image iconoCancel = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/cancelar.png"));
-        //btCancelar.setIcon(new ImageIcon(iconoCancel.getScaledInstance(btCancelar.getWidth(), btCancelar.getWidth(), Image.SCALE_SMOOTH)));
-        getContentPane().setBackground(Color.cyan);
-        ///////////////////////////////////////////////////
-        //Image iconoSalir = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/salir.png"));
-        //btSalir.setIcon(new ImageIcon(iconoSalir.getScaledInstance(btSalir.getWidth(), btSalir.getWidth(), Image.SCALE_SMOOTH)));
-        getContentPane().setBackground(Color.cyan);
-        ///////////////////////////////////////////////////
-        //Image iconoVertod = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/vertodo.png"));
-        //btVer_todo.setIcon(new ImageIcon(iconoVertod.getScaledInstance(btVer_todo.getWidth(), btVer_todo.getWidth(), Image.SCALE_SMOOTH)));
-        getContentPane().setBackground(Color.cyan);
-        ///////////////////////////////////////////////////
-        //Image iconoGuardar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/guardar.png"));
-        //btGuardar.setIcon(new ImageIcon(iconoGuardar.getScaledInstance(btGuardar.getWidth(), btGuardar.getWidth(), Image.SCALE_SMOOTH)));
-        getContentPane().setBackground(Color.cyan);
+        /////////////////////////////////////////////////
+        Image iconoVertod = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/MOSTRAR_DATOS.png"));
+        btVer_todo.setIcon(new ImageIcon(iconoVertod.getScaledInstance(btVer_todo.getWidth(), btVer_todo.getWidth(), Image.SCALE_SMOOTH)));
 
+        /////////////////////////////////////////////////
+        Image iconoGuardar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/GUARDAR.png"));
+        btGuardar.setIcon(new ImageIcon(iconoGuardar.getScaledInstance(btGuardar.getWidth(), btGuardar.getWidth(), Image.SCALE_SMOOTH)));
+        
         ema();
-
+        
         ActionListener guardar = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -72,17 +77,21 @@ public class frmReg_Cli extends javax.swing.JFrame {
             }
         };
         btVer_todo.addActionListener(mostrarcli);
-
+        
     }
-
+    
     private void ema() {
-
-//        btGuardar.setToolTipText("click para guardar cliente");
-//        btCancelar.setToolTipText("click para cancelar cliente");
-//        btNue_cli.setText("click para nuevo cliente");
-//        btSalir.setToolTipText("click para salir");
-//        btVer_todo.setToolTipText("click para ver todo");
-
+        
+        btGuardar.setToolTipText("click para guardar cliente");
+        
+        btCancelar.setToolTipText("click para cancelar cliente");
+        
+        btNue_cli.setText("click para nuevo cliente");
+        
+        btSalir.setToolTipText("click para salir");
+        
+        btVer_todo.setToolTipText("click para ver todo");
+        
         jlbIde.setText("Id");
         jlbIde.setFont(new Font("Arial", Font.BOLD, 18));
         jlbIde.setForeground(Color.BLACK);
@@ -164,9 +173,9 @@ public class frmReg_Cli extends javax.swing.JFrame {
 
         btNue_cli.setFont(new Font("Arial", Font.BOLD, 18));
         btNue_cli.setForeground(Color.BLACK);
-
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -186,15 +195,16 @@ public class frmReg_Cli extends javax.swing.JFrame {
         jlbMinititulo = new javax.swing.JLabel();
         jlbMinidir = new javax.swing.JLabel();
         jlbRegion = new javax.swing.JLabel();
-        jlbLogo = new javax.swing.JLabel();
         btSalir = new javax.swing.JButton();
         btVer_todo = new javax.swing.JButton();
         btNue_cli = new javax.swing.JButton();
+        jlb_img = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_cli = new javax.swing.JTable();
         lblTituloEma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 51, 204));
 
         jlbIde.setText("jLabel1");
 
@@ -274,9 +284,6 @@ public class frmReg_Cli extends javax.swing.JFrame {
 
         jlbRegion.setText("jLabel1");
 
-        jlbLogo.setBackground(new java.awt.Color(255, 255, 255));
-        jlbLogo.setToolTipText("");
-
         btSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSalirActionPerformed(evt);
@@ -307,9 +314,9 @@ public class frmReg_Cli extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jlbIde, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlbNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -323,7 +330,7 @@ public class frmReg_Cli extends javax.swing.JFrame {
                             .addComponent(jtNombre)
                             .addComponent(jtIde)
                             .addComponent(jtTele)))
-                    .addComponent(jlbLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlb_img, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -358,7 +365,7 @@ public class frmReg_Cli extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jlbMinititulo)
@@ -379,31 +386,33 @@ public class frmReg_Cli extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lblTituloEma, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jlbLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbIde)
-                            .addComponent(jtIde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbNombre)
-                            .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbApel)
-                            .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbCiudad)
-                            .addComponent(jtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtTele, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlbTelef))))
+                        .addGap(78, 78, 78)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlbIde)
+                                    .addComponent(jtIde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlbNombre)
+                                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlbApel)
+                                    .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlbCiudad)
+                                    .addComponent(jtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtTele, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlbTelef)))))
+                    .addComponent(jlb_img, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -499,15 +508,15 @@ public class frmReg_Cli extends javax.swing.JFrame {
 
     private void btNue_cliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNue_cliActionPerformed
         try {
-
+            
             regCliclass cli = new regCliclass();
             cli.setNom(jtNombre.getText());
             cli.setApell(jtApellido.getText());
             cli.setCiu(jtCiudad.getText());
             listaCli.add(cli);
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(this, "ERROR DE CLIENTE");
-            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ERROR DE CLIENTE");
+        }
 //        cli.tel(Integer.parseInt(jtTele.getSelectedItem().toString()));
 
     }//GEN-LAST:event_btNue_cliActionPerformed
@@ -520,23 +529,23 @@ public class frmReg_Cli extends javax.swing.JFrame {
         int can = JOptionPane.showConfirmDialog(null, "Vas a Cancelar el registro", "Cancelar Registro", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.WARNING_MESSAGE);
         if (can == 0) {
-
+            
             jtIde.setText("Id");
             jtIde.setForeground(Color.LIGHT_GRAY);
-
+            
             jtNombre.setText("Nombre");
             jtNombre.setForeground(Color.LIGHT_GRAY);
-
+            
             jtApellido.setText("Apellido");
             jtApellido.setForeground(Color.LIGHT_GRAY);
-
+            
             jtCiudad.setText("Direccion");
             jtCiudad.setForeground(Color.LIGHT_GRAY);
-
+            
             jtTele.setText("Telefono");
             jtTele.setForeground(Color.LIGHT_GRAY);
-
             
+
         }    }//GEN-LAST:event_btCancelarActionPerformed
 
     /**
@@ -553,12 +562,12 @@ public class frmReg_Cli extends javax.swing.JFrame {
     private javax.swing.JLabel jlbApel;
     private javax.swing.JLabel jlbCiudad;
     private javax.swing.JLabel jlbIde;
-    private javax.swing.JLabel jlbLogo;
     private javax.swing.JLabel jlbMinidir;
     private javax.swing.JLabel jlbMinititulo;
     private javax.swing.JLabel jlbNombre;
     private javax.swing.JLabel jlbRegion;
     private javax.swing.JLabel jlbTelef;
+    private javax.swing.JLabel jlb_img;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTextField jtCiudad;
     private javax.swing.JTextField jtIde;
