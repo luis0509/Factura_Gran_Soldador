@@ -3,8 +3,8 @@ package VISTA;
 import MODELO.login;
 import MODELO.menufac;
 
-
 public class Main {
+
     public static void main(String[] args) {
         login log_fac = new login();
         log_fac.setVisible(true);
@@ -12,5 +12,5 @@ public class Main {
         //men.setVisible(true);
 //        FIN
     }
-    
+
 }
