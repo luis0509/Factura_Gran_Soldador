@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class producto extends javax.swing.JFrame {
     public static int anchoprod = 80, altoprod = 50;
-     
+     mysql_conect db = new mysql_conect();
     public producto() {
         
         
@@ -72,24 +72,39 @@ public class producto extends javax.swing.JFrame {
     btnsalir.setBackground(Color.black);//Color Fondo
     btnsalir.addActionListener(salirprod);//Accion de Salir
     
+    btn_obtener.setText("Obtener");
+    btn_obtener.setMnemonic('O');   
+    btn_obtener.setForeground(Color.white);//Color Letra
+    btn_obtener.setBackground(Color.black);//Color Fondo
+    btn_obtener.addActionListener(new java.awt.event.ActionListener() {            
+            public void actionPerformed(ActionEvent ae) {
+            
+                db.MySQLConnection("root", "", "mysql_conect");                
+                db.getValues2("productos");
+               // db.closeConnection();
+                
+            }
+        });
+    
+    
     }
     private void Jtable_Prod(){
     //Relacionado con la tabla
     DefaultTableModel conttabla = new DefaultTableModel();
     conttabla.addColumn("ID");
-    conttabla.addColumn("Nombre");
-    conttabla.addColumn("Precio");
+    conttabla.addColumn("Descripcion");    
     conttabla.addColumn("IVA");
-    conttabla.addColumn("Peso");
+    conttabla.addColumn("Precio");
+    
 
 
     //contenido tabla
-    conttabla.addRow(new Object[]{"001", "Leche Klim", 2500, 0.19, "G"});
-    conttabla.addRow(new Object[]{"002", "Cerveza Corona", 3000, "SIN IVA", "Lts"});
-    conttabla.addRow(new Object[]{"003", "Acetaminofen", 2000, 0.19, "G"});
-    conttabla.addRow(new Object[]{"004", "Carne Especial Bufalo", 6000, 0.19, "Kg"});
-    conttabla.addRow(new Object[]{"005", "Coca Cola 3Lts", 8000, "SIN IVA", "Lts"});
-    conttabla.addRow(new Object[]{"006", "Galletas Ducales", 1600, "SIN IVA", "G"});
+//    conttabla.addRow(new Object[]{"001", "Leche Klim", 2500, 0.19, "G"});
+//    conttabla.addRow(new Object[]{"002", "Cerveza Corona", 3000, "SIN IVA", "Lts"});
+//    conttabla.addRow(new Object[]{"003", "Acetaminofen", 2000, 0.19, "G"});
+//    conttabla.addRow(new Object[]{"004", "Carne Especial Bufalo", 6000, 0.19, "Kg"});
+//    conttabla.addRow(new Object[]{"005", "Coca Cola 3Lts", 8000, "SIN IVA", "Lts"});
+//    conttabla.addRow(new Object[]{"006", "Galletas Ducales", 1600, "SIN IVA", "G"});
     jtprod.setVisible(true);
     jtprod.setModel(conttabla);
     jtprod.setPreferredSize(new Dimension(200,200));
@@ -107,6 +122,7 @@ public class producto extends javax.swing.JFrame {
         jtprod = new javax.swing.JTable();
         btnsalir = new javax.swing.JButton();
         lblimaprod = new javax.swing.JLabel();
+        btn_obtener = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +150,8 @@ public class producto extends javax.swing.JFrame {
 
         lblimaprod.setText("jLabel1");
 
+        btn_obtener.setText("jButton1");
+
         javax.swing.GroupLayout jpprodLayout = new javax.swing.GroupLayout(jpprod);
         jpprod.setLayout(jpprodLayout);
         jpprodLayout.setHorizontalGroup(
@@ -145,7 +163,9 @@ public class producto extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpprodLayout.createSequentialGroup()
                         .addGap(165, 165, 165)
-                        .addComponent(btnsalir)))
+                        .addComponent(btnsalir)
+                        .addGap(28, 28, 28)
+                        .addComponent(btn_obtener)))
                 .addContainerGap(31, Short.MAX_VALUE))
             .addGroup(jpprodLayout.createSequentialGroup()
                 .addGap(182, 182, 182)
@@ -164,7 +184,9 @@ public class producto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(btnsalir)
+                .addGroup(jpprodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnsalir)
+                    .addComponent(btn_obtener))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -224,6 +246,7 @@ public class producto extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_obtener;
     private javax.swing.JButton btnsalir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpprod;

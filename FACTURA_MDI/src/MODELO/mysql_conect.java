@@ -45,12 +45,24 @@ public class mysql_conect {
         }
     }
 
-    public void createTable(String clientes) {
+//    public void createTable(String clientes) {
+//        try {
+//            String Query = "CREATE TABLE " + clientes + ""
+//                    + "(ID VARCHAR(25),Nombre VARCHAR(50), Apellido VARCHAR(50),"
+//                    + " Edad VARCHAR(3), Donativo VARCHAR(1))";
+//            JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + clientes + " de forma exitosa");
+//            Statement st = Conexion.createStatement();
+//            st.executeUpdate(Query);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+    public void createTable2(String productos) {
         try {
-            String Query = "CREATE TABLE " + clientes + ""
-                    + "(ID VARCHAR(25),Nombre VARCHAR(50), Apellido VARCHAR(50),"
-                    + " Edad VARCHAR(3), Donativo VARCHAR(1))";
-            JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + clientes + " de forma exitosa");
+            String Query = "CREATE TABLE " + productos + ""
+                    + "(Id int(20),Descripcion VARCHAR(150), IVA VARCHAR(5),"
+                    + " Precio VARCHAR(10))";
+            JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + productos + " de forma exitosa");
             Statement st = Conexion.createStatement();
             st.executeUpdate(Query);
         } catch (SQLException ex) {
@@ -94,6 +106,24 @@ public class mysql_conect {
             JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
         }
     }
+    public void getValues2(String productos) {
+        try {
+            String Query = "SELECT * FROM " + productos;
+            Statement st = Conexion.createStatement();
+            java.sql.ResultSet resultSet;
+            resultSet = st.executeQuery(Query);
+
+            while (resultSet.next()) {
+                JOptionPane.showMessageDialog(null,"Id: " + resultSet.getString("Id") + " "
+                        + "Descripcion: " + resultSet.getString("Descripcion") + " "
+                        + "IVA: " + resultSet.getString("IVA") + " "
+                        + "Precio: " + resultSet.getString("Precio"));
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
+        }
+    }
 
     public void deleteRecord(String donantes, String Id_donantes) {
         try {
@@ -106,5 +136,9 @@ public class mysql_conect {
             JOptionPane.showMessageDialog(null, "Error borrando el registro especificado");
         }
     }
+
+    
+
+    
 
 }
