@@ -93,6 +93,14 @@ public class menMarket extends javax.swing.JFrame {
         });
         contvent2.setText("Productos");
         contvent2.setMnemonic('P');
+        contvent2.addActionListener(new java.awt.event.ActionListener() {
+            
+            public void actionPerformed(ActionEvent ae) {
+                producto prod = new producto();
+                prod.setVisible(true);
+                dispose();
+            }
+        });
         contvent3.setText("Facturacion");
         contvent3.setMnemonic('F');
         contvent3.addActionListener(new java.awt.event.ActionListener() {           
