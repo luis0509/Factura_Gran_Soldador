@@ -19,6 +19,7 @@ mysql_conect db = new mysql_conect();
   public static int anchofond2=450, altofond2=300;
     public login() {
         setLocation(500, 100);
+        this.setUndecorated(true);
         initComponents();         
         jpanelfondo();        
         fond();
