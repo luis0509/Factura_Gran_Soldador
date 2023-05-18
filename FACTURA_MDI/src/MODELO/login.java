@@ -80,11 +80,17 @@ mysql_conect db = new mysql_conect();
         btn_ing.setMnemonic('I');
         btn_ing.setBackground(Color.blue);
         btn_ing.setForeground(Color.LIGHT_GRAY);
+        btn_ing.setBounds(80, 60, 30, 30);
+        Image iconoAgregar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/login.png"));
+        btn_ing.setIcon(new ImageIcon(iconoAgregar.getScaledInstance(btn_ing.getWidth(), btn_ing.getWidth(), Image.SCALE_SMOOTH)));
         
         btn_sal.setText("Salir");
         btn_sal.setMnemonic('S');
         btn_sal.setBackground(Color.blue);
         btn_sal.setForeground(Color.LIGHT_GRAY);
+        btn_sal.setBounds(80, 60, 30, 30);
+        Image iconoAgregar2 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/SALIR.png"));
+        btn_sal.setIcon(new ImageIcon(iconoAgregar2.getScaledInstance(btn_sal.getWidth(), btn_sal.getWidth(), Image.SCALE_SMOOTH)));
         btn_sal.addActionListener(new java.awt.event.ActionListener() {            
             public void actionPerformed(ActionEvent ae) {                
                 System.exit(0);
