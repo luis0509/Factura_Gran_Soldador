@@ -60,10 +60,10 @@ public class menufac extends javax.swing.JFrame {
        jboxproductos.setModel(comboModel);
        
         tabla_st = new DefaultTableModel();
-        tabla_st.addColumn("ID");
-        tabla_st.addColumn("Nombre");
-        tabla_st.addColumn("Precio");
-        tabla_st.addColumn("IVA");
+        tabla_st.addColumn("Descripcion");
+        tabla_st.addColumn("Cantidad");
+        tabla_st.addColumn("Precio U.");
+        tabla_st.addColumn("Precio x Cant");
 
         modelo.setVisible(true);
         modelo.setModel(tabla_st);
@@ -83,25 +83,25 @@ public boolean buscarvent(venta nueva) {
         return false;
     }
 
-    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {
-        venta venta = new venta();
-        venta.setId(jboxproductos.getSelectedIndex());
-        venta.setDescripcion(jboxproductos.getSelectedItem().toString());
-        venta.setPrecio(precio);
-        venta.setCantidad(cantidad);
-        venta.setIva(precio * cantidad);
-        if (!buscarvent(venta)) {
-            listaventas.add(venta);
-        }
-        actualizartabla();
-        borrar();
-    }
+//    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {
+//        venta venta = new venta();
+//        venta.setId(jboxproductos.getSelectedIndex());
+//        venta.setDescripcion(jboxproductos.getSelectedItem().toString());
+//        venta.setPrecio(precio);
+//        venta.setCantidad(cantidad);
+//        venta.setIva(precio * cantidad);
+//        if (!buscarvent(venta)) {
+//            listaventas.add(venta);
+//        }
+//        actualizartabla();
+//        borrar();
+//    }
 
     public void borrar() {
         precio = 0;
         cantidad = 1;
         jboxproductos.setSelectedIndex(0);
-        //jscantidad.setValue(1);
+        //jscantidad.setValue();
         calcprecio();
 
     }
@@ -484,12 +484,27 @@ public boolean buscarvent(venta nueva) {
         getContentPane().add(btnFact2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 257, 150, -1));
 
         btnagregar.setText("jButton1");
+        btnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 140, -1));
 
         jboxproductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jboxproductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jboxproductosActionPerformed(evt);
+            }
+        });
         getContentPane().add(jboxproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, -1));
 
         jscantidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jscantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jscantidadActionPerformed(evt);
+            }
+        });
         getContentPane().add(jscantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 100, -1));
 
         lbl_prodfac.setText("jLabel1");
@@ -602,6 +617,28 @@ public boolean buscarvent(venta nueva) {
             txtFact6.setForeground(Color.lightGray);
         }
     }//GEN-LAST:event_txtFact6FocusLost
+
+    private void jboxproductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jboxproductosActionPerformed
+        calcprecio();
+    }//GEN-LAST:event_jboxproductosActionPerformed
+
+    private void jscantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jscantidadActionPerformed
+        calcprecio();
+    }//GEN-LAST:event_jscantidadActionPerformed
+
+    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+        venta venta= new venta();
+        venta.setId(jboxproductos.getSelectedIndex());
+        venta.setDescripcion(jboxproductos.getSelectedItem().toString());
+        venta.setPrecio(precio);
+        venta.setCantidad(cantidad);
+        venta.setIva(precio*cantidad);
+        if(!buscarvent(venta)){
+           listaventas.add(venta); 
+        }       
+        actualizartabla();
+        borrar();
+    }//GEN-LAST:event_btnagregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

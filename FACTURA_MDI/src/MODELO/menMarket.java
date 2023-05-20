@@ -24,7 +24,7 @@ public class menMarket extends javax.swing.JFrame {
      public static int anchofond=400, altofond=400;
      
     public menMarket() {        
-        setLocation(700, 300);
+        setLocation(500, 150);
         initComponents();
         menuitem();
         menuventana();
