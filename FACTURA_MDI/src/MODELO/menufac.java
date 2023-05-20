@@ -71,6 +71,7 @@ public class menufac extends javax.swing.JFrame {
         calcprecio();
 
     }
+    
 public boolean buscarvent(venta nueva) {
         for (venta v : listaventas) {
             if (v.getId() == nueva.getId()) {
@@ -101,7 +102,7 @@ public boolean buscarvent(venta nueva) {
         precio = 0;
         cantidad = 1;
         jboxproductos.setSelectedIndex(0);
-        //jscantidad.setValue();
+        jscantidad.setValue(1);
         calcprecio();
 
     }
@@ -109,8 +110,8 @@ public boolean buscarvent(venta nueva) {
     public void calcprecio() {
 
         precio = precios[jboxproductos.getSelectedIndex()];
-        //cantidad = Integer.parseInt(jscantidad.getValue().toString());
-        txtFact1.setText(amoneda(precio));
+        cantidad = Integer.parseInt(jscantidad.getValue().toString());
+        txtFact7.setText(amoneda(precio));
         txtFact8.setText(amoneda(precio * cantidad));
     }
 
@@ -138,10 +139,10 @@ public boolean buscarvent(venta nueva) {
         double iva = subtotal * 0.19;
         double total = subtotal + iva;
         txtFact1.setText(amoneda(subtotal));
-        txtFact7.setText(amoneda(iva));
-        txtFact8.setText(amoneda(total));
+        txtFact8.setText(amoneda(iva));
+        txtFact9.setText(amoneda(total));
         //txtFact9.setModel(tabla_st);
-
+            
     }
     public void salir_men() {
         menu_factura.setText("OPCIONES");
@@ -256,10 +257,10 @@ public boolean buscarvent(venta nueva) {
         txtFact6.setPreferredSize(new Dimension(125, 25));
 
         //CAJAS DE TEXTO PRECIOS PONER EN BLANCO
-        txtFact1.setText(" ");
-        txtFact7.setText(" ");
-        txtFact8.setText(" ");
-        txtFact9.setText(" ");
+        txtFact1.setText("$ 0");
+        txtFact7.setText("$ 0");
+        txtFact8.setText("$ 0");
+        txtFact9.setText("$ 0");
         txtFact10.setText(" ");
 
         //AGREGAR TEXTOS A LOS BOTONES
@@ -322,9 +323,9 @@ public boolean buscarvent(venta nueva) {
         btnFact2 = new javax.swing.JButton();
         btnagregar = new javax.swing.JButton();
         jboxproductos = new javax.swing.JComboBox<>();
-        jscantidad = new javax.swing.JComboBox<>();
         lbl_prodfac = new javax.swing.JLabel();
         lbl_prodcant = new javax.swing.JLabel();
+        jscantidad = new javax.swing.JSpinner();
         menuBar = new javax.swing.JMenuBar();
         menu_factura = new javax.swing.JMenu();
         btn_salfactura = new javax.swing.JMenuItem();
@@ -499,19 +500,12 @@ public boolean buscarvent(venta nueva) {
         });
         getContentPane().add(jboxproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 100, -1));
 
-        jscantidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jscantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jscantidadActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jscantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 100, -1));
-
         lbl_prodfac.setText("jLabel1");
         getContentPane().add(lbl_prodfac, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 90, 20));
 
         lbl_prodcant.setText("jLabel2");
         getContentPane().add(lbl_prodcant, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 304, 90, 20));
+        getContentPane().add(jscantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 40, -1));
 
         menu_factura.setMnemonic('f');
         menu_factura.setText("File");
@@ -622,10 +616,6 @@ public boolean buscarvent(venta nueva) {
         calcprecio();
     }//GEN-LAST:event_jboxproductosActionPerformed
 
-    private void jscantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jscantidadActionPerformed
-        calcprecio();
-    }//GEN-LAST:event_jscantidadActionPerformed
-
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
         venta venta= new venta();
         venta.setId(jboxproductos.getSelectedIndex());
@@ -649,7 +639,7 @@ public boolean buscarvent(venta nueva) {
     private javax.swing.JComboBox<String> cmxFact1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jboxproductos;
-    private javax.swing.JComboBox<String> jscantidad;
+    private javax.swing.JSpinner jscantidad;
     private javax.swing.JLabel lblFact1;
     private javax.swing.JLabel lblFact11;
     private javax.swing.JLabel lblFact12;
