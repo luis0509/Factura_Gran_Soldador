@@ -17,7 +17,8 @@ public class frmReg_Cli extends javax.swing.JFrame {
     DefaultTableModel tabla_ema = new DefaultTableModel();
     ArrayList<regCliclass> listaCli = new ArrayList<regCliclass>();
 
-    public static int anchofond = 120, altofond = 120;
+    public static int anchofond = 300, altofond = 120;
+    public static int anchofond2 = 450, altofond2 = 300;
     int[] id = {1, 2, 3, 4};
     String[] ruta = {"/IMAG/gransol2.jpg"};
 
@@ -25,12 +26,15 @@ public class frmReg_Cli extends javax.swing.JFrame {
 
         setTitle("REGISTROS CLIENTES");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setSize(new Dimension(300, 500));
+
         Image regImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/gransol.jpg"));
         setIconImage(regImage);
-        //setLocationRelativeTo(null);
+
+        setLocation(100, 110);
         initComponents();
 
-        setLocation(500, 100);
         ImageIcon fotos = new ImageIcon(getClass().getResource(ruta[0]));
         ImageIcon mitad = new ImageIcon(fotos.getImage().getScaledInstance(anchofond, altofond, Image.SCALE_DEFAULT));
         jlb_img.setIcon(mitad);
@@ -86,16 +90,6 @@ public class frmReg_Cli extends javax.swing.JFrame {
 
     private void ema() {
 
-        btGuardar.setToolTipText("GUARDAR CLIENTE");
-
-        btCancelar.setToolTipText("CANCELAR CLIENTE");
-
-        bt_nvocli.setText("NUEVO CLIENTE");
-
-        btSalir.setToolTipText("SALIR");
-
-        btVer_todo.setToolTipText("VER TODO");
-
         jlbIde.setText("CC");
         jlbIde.setFont(new Font("Arial", Font.BOLD, 18));
         jlbIde.setForeground(Color.BLACK);
@@ -144,8 +138,8 @@ public class frmReg_Cli extends javax.swing.JFrame {
         jtApellido.setText("Apellido");
         jtApellido.setForeground(Color.LIGHT_GRAY);
         //////////////////////////////////////////////
-        jtCiudad.setText("Direccion");
-        jtCiudad.setForeground(Color.LIGHT_GRAY);
+        jtDireccion.setText("Direccion");
+        jtDireccion.setForeground(Color.LIGHT_GRAY);
         //////////////////////////////////////////////
         jtTele.setText("Celular");
         jtTele.setForeground(Color.LIGHT_GRAY);
@@ -153,30 +147,34 @@ public class frmReg_Cli extends javax.swing.JFrame {
         jtIde.setToolTipText("Digita identificacion");
         jtNombre.setToolTipText("escribe nombre");
         jtApellido.setToolTipText("escribe apellido");
-        jtCiudad.setToolTipText("Direccion");
+        jtDireccion.setToolTipText("Direccion");
         jtTele.setToolTipText("digita Celular");
-        /////////////////////////////////boton aceptar
 
-        btGuardar.setFont(new Font("Arial", Font.BOLD, 18));
-        btGuardar.setForeground(Color.BLACK);
-        /////////////////////////////////boton cancelar 
+        btGuardar.setToolTipText("GUARDAR_CLIENTE");
+        btCancelar.setToolTipText("CANCELAR_CLIENTE");
+        bt_nvocli.setText("NUEVO_CLIENTE");
+        btSalir.setToolTipText("SALIR");
+        btVer_todo.setToolTipText("VER TODO");
 
-        btCancelar.setFont(new Font("Arial", Font.BOLD, 18));
-        btCancelar.setForeground(Color.BLACK);
-        /////////////////////////////////////////boton salir
-
-        btSalir.setFont(new Font("Arial", Font.BOLD, 18));
-        btSalir.setForeground(Color.BLACK);
-        ///////////////////////////////////////////////boton editar
-
-        /////////////////////////////////////////////////boton ver todo
-        btVer_todo.setFont(new Font("Arial", Font.BOLD, 18));
-        btVer_todo.setForeground(Color.BLACK);
-        ///////////////////////////////////////////////////boton nuevo cliente
-
-        bt_nvocli.setFont(new Font("Arial", Font.BOLD, 18));
-        bt_nvocli.setForeground(Color.BLACK);
-
+//        btGuardar.setFont(new Font("Arial", Font.BOLD, 18));
+//        btGuardar.setForeground(Color.BLACK);
+//        /////////////////////////////////boton cancelar 
+//
+//        btCancelar.setFont(new Font("Arial", Font.BOLD, 18));
+//        btCancelar.setForeground(Color.BLACK);
+//        /////////////////////////////////////////boton salir
+//
+//        btSalir.setFont(new Font("Arial", Font.BOLD, 18));
+//        btSalir.setForeground(Color.BLACK);
+//        ///////////////////////////////////////////////boton editar
+//
+//        /////////////////////////////////////////////////boton ver todo
+//        btVer_todo.setFont(new Font("Arial", Font.BOLD, 18));
+//        btVer_todo.setForeground(Color.BLACK);
+//        ///////////////////////////////////////////////////boton nuevo cliente
+//
+//        bt_nvocli.setFont(new Font("Arial", Font.BOLD, 18));
+//        bt_nvocli.setForeground(Color.BLACK);
     }
 
     @SuppressWarnings("unchecked")
@@ -190,7 +188,7 @@ public class frmReg_Cli extends javax.swing.JFrame {
         jtIde = new javax.swing.JTextField();
         jtNombre = new javax.swing.JTextField();
         jtApellido = new javax.swing.JTextField();
-        jtCiudad = new javax.swing.JTextField();
+        jtDireccion = new javax.swing.JTextField();
         btGuardar = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         jlbTelef = new javax.swing.JLabel();
@@ -201,9 +199,9 @@ public class frmReg_Cli extends javax.swing.JFrame {
         btSalir = new javax.swing.JButton();
         btVer_todo = new javax.swing.JButton();
         bt_nvocli = new javax.swing.JButton();
-        jlb_img = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_cli = new javax.swing.JTable();
+        jlb_img = new javax.swing.JLabel();
         lblTituloEma = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -247,13 +245,13 @@ public class frmReg_Cli extends javax.swing.JFrame {
             }
         });
 
-        jtCiudad.setText("jTextField5");
-        jtCiudad.addFocusListener(new java.awt.event.FocusAdapter() {
+        jtDireccion.setText("jTextField5");
+        jtDireccion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jtCiudadFocusGained(evt);
+                jtDireccionFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jtCiudadFocusLost(evt);
+                jtDireccionFocusLost(evt);
             }
         });
 
@@ -318,101 +316,116 @@ public class frmReg_Cli extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlb_img, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jlbTelef, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlbCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                            .addComponent(jlbApel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jlbNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jlbIde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtIde, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtTele, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jlb_img, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlbIde, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(bt_nvocli, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtIde, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btVer_todo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jlbApel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlbTelef, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(jtTele, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(lblTituloEma, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jlbMinidir, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(jlbMinititulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jlbRegion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(46, 46, 46))
+                        .addGap(58, 58, 58)
+                        .addComponent(lblTituloEma, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlbMinititulo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbMinidir, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(bt_nvocli, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(btVer_todo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlb_img, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbIde)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jlb_img, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jlbIde))
                             .addComponent(jtIde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbNombre)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jlbNombre))
                             .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbApel)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jlbApel))
                             .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbCiudad)
-                            .addComponent(jtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlbTelef)
-                            .addComponent(jtTele, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTituloEma, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jlbMinititulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlbMinidir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlbRegion)
-                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt_nvocli, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btVer_todo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(123, 123, 123))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jlbCiudad))
+                            .addComponent(jtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jlbTelef))
+                            .addComponent(jtTele, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTituloEma, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlbMinititulo)
+                                .addGap(11, 11, 11)
+                                .addComponent(jlbMinidir)
+                                .addGap(6, 6, 6)
+                                .addComponent(jlbRegion)
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt_nvocli, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btVer_todo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
+                                .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -467,19 +480,19 @@ public class frmReg_Cli extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtApellidoFocusLost
 
-    private void jtCiudadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtCiudadFocusGained
-        if (jtCiudad.getText().equals("Direccion")) {
-            jtCiudad.setText("");
-            jtCiudad.setForeground(Color.black);
+    private void jtDireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDireccionFocusGained
+        if (jtDireccion.getText().equals("Direccion")) {
+            jtDireccion.setText("");
+            jtDireccion.setForeground(Color.black);
         }
-    }//GEN-LAST:event_jtCiudadFocusGained
+    }//GEN-LAST:event_jtDireccionFocusGained
 
-    private void jtCiudadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtCiudadFocusLost
-        if (jtCiudad.getText().equals("")) {
-            jtCiudad.setText("Direccion");
-            jtCiudad.setForeground(Color.lightGray);
+    private void jtDireccionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDireccionFocusLost
+        if (jtDireccion.getText().equals("")) {
+            jtDireccion.setText("Direccion");
+            jtDireccion.setForeground(Color.lightGray);
         }
-    }//GEN-LAST:event_jtCiudadFocusLost
+    }//GEN-LAST:event_jtDireccionFocusLost
 
     private void jtTeleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTeleFocusGained
         if (jtTele.getText().equals("Celular")) {
@@ -523,8 +536,8 @@ public class frmReg_Cli extends javax.swing.JFrame {
             jtApellido.setText("Apellido");
             jtApellido.setForeground(Color.LIGHT_GRAY);
 
-            jtCiudad.setText("Direccion");
-            jtCiudad.setForeground(Color.LIGHT_GRAY);
+            jtDireccion.setText("Direccion");
+            jtDireccion.setForeground(Color.LIGHT_GRAY);
 
             jtTele.setText("Celular");
             jtTele.setForeground(Color.LIGHT_GRAY);
@@ -533,12 +546,12 @@ public class frmReg_Cli extends javax.swing.JFrame {
         }    }//GEN-LAST:event_btCancelarActionPerformed
 
     private void bt_nvocliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_nvocliActionPerformed
-       try {
+        try {
 
             regCliclass cli = new regCliclass();
             cli.setNom(jtNombre.getText());
             cli.setApell(jtApellido.getText());
-            cli.setCiu(jtCiudad.getText());
+            cli.setCiu(jtDireccion.getText());
             listaCli.add(cli);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERROR DE CLIENTE");
@@ -566,7 +579,7 @@ public class frmReg_Cli extends javax.swing.JFrame {
     private javax.swing.JLabel jlbTelef;
     private javax.swing.JLabel jlb_img;
     private javax.swing.JTextField jtApellido;
-    private javax.swing.JTextField jtCiudad;
+    private javax.swing.JTextField jtDireccion;
     private javax.swing.JTextField jtIde;
     private javax.swing.JTextField jtNombre;
     private javax.swing.JTextField jtTele;
