@@ -127,9 +127,9 @@ public class mysql_conect {
         }
     }
 
-    public void deleteRecord(String clientes, String CC_clientes) {
+    public void deleteRecord(String clientes, String CC_cliente) {
         try {
-            String Query = "DELETE FROM " + clientes + " WHERE Id_donantes = \"" + CC_clientes + "\"";
+            String Query = "DELETE FROM " + clientes + " WHERE CC_cliente = \"" + CC_cliente + "\"";
             Statement st = Conexion.createStatement();
             st.executeUpdate(Query);
 

@@ -3,6 +3,7 @@ package MODELO;
 import java.awt.event.ActionEvent;
 
 public class Eliminar_cli extends javax.swing.JFrame {
+mysql_conect sqdel = new mysql_conect();
 
     public Eliminar_cli() {
         setLocation(500, 150);
@@ -12,7 +13,7 @@ public class Eliminar_cli extends javax.swing.JFrame {
     }
 
     public void menu() {
-        fileMenu_del.add(sal_delcli);
+        menuBar_delete.add(fileMenu_del);
 
         fileMenu_del.setText("Opcion");
         fileMenu_del.setMnemonic('O');
@@ -32,9 +33,18 @@ public class Eliminar_cli extends javax.swing.JFrame {
         lbl_borrar.setText("ID: ");
         lbl_borrar.setFont(new java.awt.Font("Tahoma",3,18));
         btn_borrar.setText("Eliminar");
-        btn_borrar.setFont(new java.awt.Font("Tahoma",3,12));
+        btn_borrar.setFont(new java.awt.Font("Tahoma",3,10));
         jtf_borrar.setText("");
         jtf_borrar.setBounds(55, 28, 180, 24);
+        
+        btn_borrar.addActionListener(new java.awt.event.ActionListener() {
+            
+            public void actionPerformed(ActionEvent ae) {
+                sqdel.MySQLConnection("root", "", "ba_gransoldi");
+                sqdel.deleteRecord("clientes", jtf_borrar.getText());
+            }
+        });
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -45,7 +55,7 @@ public class Eliminar_cli extends javax.swing.JFrame {
         lbl_borrar = new javax.swing.JLabel();
         jtf_borrar = new javax.swing.JTextField();
         btn_borrar = new javax.swing.JButton();
-        menuBar = new javax.swing.JMenuBar();
+        menuBar_delete = new javax.swing.JMenuBar();
         fileMenu_del = new javax.swing.JMenu();
         sal_delcli = new javax.swing.JMenuItem();
 
@@ -75,9 +85,9 @@ public class Eliminar_cli extends javax.swing.JFrame {
         });
         fileMenu_del.add(sal_delcli);
 
-        menuBar.add(fileMenu_del);
+        menuBar_delete.add(fileMenu_del);
 
-        setJMenuBar(menuBar);
+        setJMenuBar(menuBar_delete);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,7 +148,7 @@ public class Eliminar_cli extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu_del;
     private javax.swing.JTextField jtf_borrar;
     private javax.swing.JLabel lbl_borrar;
-    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuBar menuBar_delete;
     private javax.swing.JMenuItem sal_delcli;
     // End of variables declaration//GEN-END:variables
 

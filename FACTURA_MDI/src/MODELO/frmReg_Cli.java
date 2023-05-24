@@ -556,16 +556,19 @@ public class frmReg_Cli extends javax.swing.JFrame {
         }    }//GEN-LAST:event_btCancelarActionPerformed
 
     private void bt_nvocliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_nvocliActionPerformed
-        try {
-
-            regCliclass cli = new regCliclass();
-            cli.setNom(jtNombre.getText());
-            cli.setApell(jtApellido.getText());
-            cli.setCiu(jtDireccion.getText());
-            listaCli.add(cli);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "ERROR DE CLIENTE");
-        }
+        Eliminar_cli ecli = new Eliminar_cli();
+        ecli.setVisible(true);
+        dispose();
+//        try {
+//
+//            regCliclass cli = new regCliclass();
+//            cli.setNom(jtNombre.getText());
+//            cli.setApell(jtApellido.getText());
+//            cli.setCiu(jtDireccion.getText());
+//            listaCli.add(cli);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this, "ERROR DE CLIENTE");
+//        }
     }//GEN-LAST:event_bt_nvocliActionPerformed
 
     private void btVer_todoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVer_todoActionPerformed
