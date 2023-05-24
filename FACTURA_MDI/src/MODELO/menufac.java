@@ -53,7 +53,7 @@ public class menufac extends javax.swing.JFrame {
         salir_men();
     }
     DefaultTableModel tabla_st;
-
+    
     private void tabla() {
         
         DefaultComboBoxModel comboModel = new DefaultComboBoxModel(productos);

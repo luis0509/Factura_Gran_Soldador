@@ -78,7 +78,7 @@ public class menMarket extends javax.swing.JFrame {
         menuvent.add(contvent1);
         menuvent.add(contvent3);
         menuvent.add(contvent3);
-        
+        menuvent.add(contvent4);
                 
                 
         contvent1.setText("Clientes");
@@ -111,6 +111,8 @@ public class menMarket extends javax.swing.JFrame {
             }
         });
         
+        contvent4.setText("Eliminar Cliente");
+        contvent4.setMnemonic('E');
         
         
     }
@@ -173,6 +175,7 @@ public class menMarket extends javax.swing.JFrame {
         contvent1 = new javax.swing.JMenuItem();
         contvent3 = new javax.swing.JMenuItem();
         contvent2 = new javax.swing.JMenuItem();
+        contvent4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -253,6 +256,10 @@ public class menMarket extends javax.swing.JFrame {
         contvent2.setText("Paste");
         menuvent.add(contvent2);
 
+        contvent4.setMnemonic('y');
+        contvent4.setText("Copy");
+        menuvent.add(contvent4);
+
         menuBar.add(menuvent);
 
         setJMenuBar(menuBar);
@@ -303,6 +310,7 @@ public class menMarket extends javax.swing.JFrame {
     private javax.swing.JMenuItem contvent1;
     private javax.swing.JMenuItem contvent2;
     private javax.swing.JMenuItem contvent3;
+    private javax.swing.JMenuItem contvent4;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel jp_menfac;
