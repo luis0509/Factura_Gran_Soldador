@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class frmReg_Cli extends javax.swing.JFrame {
-
+    mysql_conect cbaC = new mysql_conect();
     DefaultTableModel tabla_ema = new DefaultTableModel();
     ArrayList<regCliclass> listaCli = new ArrayList<regCliclass>();
 
@@ -291,6 +291,12 @@ public class frmReg_Cli extends javax.swing.JFrame {
             }
         });
 
+        btVer_todo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVer_todoActionPerformed(evt);
+            }
+        });
+
         bt_nvocli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_nvocliActionPerformed(evt);
@@ -561,6 +567,12 @@ public class frmReg_Cli extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ERROR DE CLIENTE");
         }
     }//GEN-LAST:event_bt_nvocliActionPerformed
+
+    private void btVer_todoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVer_todoActionPerformed
+        cbaC.MySQLConnection("root", "", "ba_gransoldi");
+        cbaC.getValues("clientes");
+        
+    }//GEN-LAST:event_btVer_todoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -278,6 +278,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btVer_todo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btVer_todoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bt_nvocli">
       <Events>

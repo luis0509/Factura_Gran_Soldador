@@ -45,18 +45,18 @@ public class mysql_conect {
         }
     }
 
-//    public void createTable(String clientes) {
-//        try {
-//            String Query = "CREATE TABLE " + clientes + ""
-//                    + "(ID VARCHAR(25),Nombre VARCHAR(50), Apellido VARCHAR(50),"
-//                    + " Edad VARCHAR(3), Donativo VARCHAR(1))";
-//            JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + clientes + " de forma exitosa");
-//            Statement st = Conexion.createStatement();
-//            st.executeUpdate(Query);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    public void createTable(String clientes) {
+        try {
+            String Query = "CREATE TABLE " + clientes + ""
+                    + "(CC_cliente VARCHAR(15),Nombre VARCHAR(50), Apellido VARCHAR(50),"
+                    + " Direccion VARCHAR(50), Celular VARCHAR(50))";
+            JOptionPane.showMessageDialog(null, "Se ha creado la base de tabla " + clientes + " de forma exitosa");
+            Statement st = Conexion.createStatement();
+            st.executeUpdate(Query);
+        } catch (SQLException ex) {
+            Logger.getLogger(mysql_conect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void createTable2(String productos) {
         try {
             String Query = "CREATE TABLE " + productos + ""
@@ -95,17 +95,19 @@ public class mysql_conect {
             resultSet = st.executeQuery(Query);
 
             while (resultSet.next()) {
-                JOptionPane.showMessageDialog(null,"Id_Donantes: " + resultSet.getString("Id_Donantes") + " "
+                JOptionPane.showMessageDialog(null,"CC_cliente: " + resultSet.getString("CC_cliente") + " "
                         + "Nombre: " + resultSet.getString("Nombre") + " "
                         + "Apellido: " + resultSet.getString("Apellido") + " "
-                        + "Edad: " + resultSet.getString("Edad") + " ");
-                        //+ "Donativo: " + resultSet.getString("Donativo"));
+                        + "Direccion: " + resultSet.getString("Direccion") + " "
+                        + "Celular: " + resultSet.getString("Celular"));
             }
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
         }
     }
+    
+    
     public void getValues2(String productos) {
         try {
             String Query = "SELECT * FROM " + productos;
