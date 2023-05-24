@@ -519,7 +519,11 @@ public class frmReg_Cli extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalirActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
-
+        mysql_conect dbC = new mysql_conect();
+        dbC.MySQLConnection("root", "", "ba_gransoldi");
+        dbC.insertData("clientes",jtIde.getText(),jtNombre.getText(),jtApellido.getText(),jtDireccion.getText(),jtTele.getText());
+        //dbC.closeConnection();
+        
     }//GEN-LAST:event_btGuardarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed

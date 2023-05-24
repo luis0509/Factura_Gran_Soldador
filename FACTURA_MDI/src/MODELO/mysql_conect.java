@@ -70,7 +70,7 @@ public class mysql_conect {
         }
     }
 
-    public void insertData(String clientes, int CC_cliente, char Nombre, char Apellido, char Direccion, char Celular) {
+    public void insertData(String clientes, String CC_cliente, String Nombre, String Apellido, String Direccion, String Celular) {
         try {
             String Query = "INSERT INTO " + clientes + " VALUES("
                     + "\"" + CC_cliente + "\", "

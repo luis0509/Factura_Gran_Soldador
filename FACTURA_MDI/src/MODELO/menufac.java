@@ -102,7 +102,7 @@ public boolean buscarvent(venta nueva) {
         precio = 0;
         cantidad = 1;
         jboxproductos.setSelectedIndex(0);
-        jscantidad.setValue(1);
+        jscantidad.setValue(0);
         calcprecio();
 
     }
@@ -111,7 +111,7 @@ public boolean buscarvent(venta nueva) {
 
         precio = precios[jboxproductos.getSelectedIndex()];
         cantidad = Integer.parseInt(jscantidad.getValue().toString());
-        txtFact7.setText(amoneda(precio));
+        txtFact7.setText(amoneda(precio));        
         txtFact8.setText(amoneda(precio * cantidad));
     }
 
@@ -223,7 +223,7 @@ public boolean buscarvent(venta nueva) {
         lblFact12.setFont(new Font("Arial", Font.BOLD, 15));
         lblFact12.setForeground(Color.BLACK);
 
-        lblFact13.setText("Descuento");
+        lblFact13.setText("Valor x U.");
         lblFact13.setFont(new Font("Arial", Font.BOLD, 15));
         lblFact13.setForeground(Color.BLACK);
 
@@ -271,6 +271,7 @@ public boolean buscarvent(venta nueva) {
         btnFact2.setText("Buscar Producto");
         btnFact2.setFont(new Font("Arial", Font.BOLD, 13));
         btnFact2.setBackground(Color.white);
+        btnagregar.setText("REGISTRAR");
 
 //        btnFact3.setText("Aceptar");
 //        btnFact3.setFont(new Font("Arial", Font.BOLD, 18));
@@ -617,6 +618,7 @@ public boolean buscarvent(venta nueva) {
     }//GEN-LAST:event_jboxproductosActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+        
         venta venta= new venta();
         venta.setId(jboxproductos.getSelectedIndex());
         venta.setDescripcion(jboxproductos.getSelectedItem().toString());
