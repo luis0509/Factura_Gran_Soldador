@@ -90,7 +90,7 @@ public class mysql_conect {
     public void getValues(String clientes) {
         try {
             String Query = "SELECT * FROM " + clientes;
-            Statement st = Conexion.createStatement();
+            Statement st = Conexion.createStatement();            
             java.sql.ResultSet resultSet;
             resultSet = st.executeQuery(Query);
 

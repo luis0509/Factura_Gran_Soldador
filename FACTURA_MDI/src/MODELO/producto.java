@@ -97,14 +97,14 @@ public class producto extends javax.swing.JFrame {
     conttabla.addColumn("Precio");
     
 
-
-    //contenido tabla
+    
 //    conttabla.addRow(new Object[]{"001", "Leche Klim", 2500, 0.19, "G"});
 //    conttabla.addRow(new Object[]{"002", "Cerveza Corona", 3000, "SIN IVA", "Lts"});
 //    conttabla.addRow(new Object[]{"003", "Acetaminofen", 2000, 0.19, "G"});
 //    conttabla.addRow(new Object[]{"004", "Carne Especial Bufalo", 6000, 0.19, "Kg"});
 //    conttabla.addRow(new Object[]{"005", "Coca Cola 3Lts", 8000, "SIN IVA", "Lts"});
 //    conttabla.addRow(new Object[]{"006", "Galletas Ducales", 1600, "SIN IVA", "G"});
+
     jtprod.setVisible(true);
     jtprod.setModel(conttabla);
     jtprod.setPreferredSize(new Dimension(200,200));
