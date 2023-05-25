@@ -195,9 +195,9 @@ public boolean buscarvent(venta nueva) {
         lblFact4.setFont(new Font("Arial", Font.BOLD, 12));
         lblFact4.setForeground(Color.BLACK);
 
-        lblFact5.setText("No. Factura");
-        lblFact5.setFont(new Font("Arial", Font.BOLD, 12));
-        lblFact5.setForeground(Color.BLACK);
+//        lblFact5.setText("No. Factura");
+//        lblFact5.setFont(new Font("Arial", Font.BOLD, 12));
+//        lblFact5.setForeground(Color.BLACK);
 
         lblFact6.setText("No. identificacion");
         lblFact6.setFont(new Font("Arial", Font.BOLD, 12));
@@ -234,7 +234,16 @@ public boolean buscarvent(venta nueva) {
         lblFact15.setText("Pago Total");
         lblFact15.setFont(new Font("Arial", Font.BOLD, 15));
         lblFact15.setForeground(Color.BLACK);
-
+        
+        lbl_prodcant.setText("Cantidad");
+        lbl_prodcant.setFont(new Font("Arial", Font.BOLD, 15));
+        lbl_prodcant.setForeground(Color.BLACK);
+        
+        lbl_prodfac.setText("Productos");
+        lbl_prodfac.setFont(new Font("Arial", Font.BOLD, 15));
+        lbl_prodfac.setForeground(Color.BLACK);
+        
+     
         //AGREGANDO TITULOS A LOS TEXTOS PARA DAR AVISO EH INGRESAR DATOS   
         txtFact2.setText("Identificacion");
         txtFact2.setForeground(Color.LIGHT_GRAY);
@@ -261,7 +270,7 @@ public boolean buscarvent(venta nueva) {
         txtFact7.setText("$ 0");
         txtFact8.setText("$ 0");
         txtFact9.setText("$ 0");
-        txtFact10.setText(" ");
+//        txtFact10.setText(" ");
 
         //AGREGAR TEXTOS A LOS BOTONES
         btnFact1.setText("Buscar Cliente");
@@ -308,8 +317,6 @@ public boolean buscarvent(venta nueva) {
         txtFact5 = new javax.swing.JTextField();
         lblFact11 = new javax.swing.JLabel();
         cmxFact1 = new javax.swing.JComboBox<>();
-        lblFact5 = new javax.swing.JLabel();
-        txtFact10 = new javax.swing.JTextField();
         txtFact6 = new javax.swing.JTextField();
         lblFact12 = new javax.swing.JLabel();
         lblFact13 = new javax.swing.JLabel();
@@ -416,17 +423,6 @@ public boolean buscarvent(venta nueva) {
         cmxFact1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cmxFact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 193, 89, -1));
 
-        lblFact5.setText("jLabel10");
-        getContentPane().add(lblFact5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 80, 20));
-
-        txtFact10.setText("jTextField5");
-        txtFact10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFact10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtFact10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 150, -1));
-
         txtFact6.setText("jTextField6");
         txtFact6.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -530,10 +526,6 @@ public boolean buscarvent(venta nueva) {
     private void btn_salfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salfacturaActionPerformed
 
     }//GEN-LAST:event_btn_salfacturaActionPerformed
-
-    private void txtFact10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFact10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFact10ActionPerformed
 
     private void txtFact7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFact7ActionPerformed
         // TODO add your handling code here:
@@ -651,7 +643,6 @@ public boolean buscarvent(venta nueva) {
     private javax.swing.JLabel lblFact2;
     private javax.swing.JLabel lblFact3;
     private javax.swing.JLabel lblFact4;
-    private javax.swing.JLabel lblFact5;
     private javax.swing.JLabel lblFact6;
     private javax.swing.JLabel lblFact7;
     private javax.swing.JLabel lblFact8;
@@ -662,7 +653,6 @@ public boolean buscarvent(venta nueva) {
     private javax.swing.JMenu menu_factura;
     private javax.swing.JTable modelo;
     private javax.swing.JTextField txtFact1;
-    private javax.swing.JTextField txtFact10;
     private javax.swing.JTextField txtFact2;
     private javax.swing.JTextField txtFact3;
     private javax.swing.JTextField txtFact4;
