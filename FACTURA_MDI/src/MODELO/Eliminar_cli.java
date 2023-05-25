@@ -42,6 +42,8 @@ mysql_conect sqdel = new mysql_conect();
             public void actionPerformed(ActionEvent ae) {
                 sqdel.MySQLConnection("root", "", "ba_gransoldi");
                 sqdel.deleteRecord("clientes", jtf_borrar.getText());
+                jtf_borrar.setText("");
+                sqdel.closeConnection();
             }
         });
         
