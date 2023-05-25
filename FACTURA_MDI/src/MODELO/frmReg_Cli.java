@@ -51,10 +51,10 @@ public class frmReg_Cli extends javax.swing.JFrame {
 
 //        refrescartab();
         ///////////////////////////////////////////
-        Image iconoAgregar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/AGREGAR.png"));
+        Image iconoAgregar = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/basura.png"));
         bt_nvocli.setIcon(new ImageIcon(iconoAgregar.getScaledInstance(bt_nvocli.getWidth(), bt_nvocli.getWidth(), Image.SCALE_SMOOTH)));
         /////////////////////////////////////////////////
-        Image iconoCancel = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/CANCELAR.png"));
+        Image iconoCancel = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/clean.png"));
         btCancelar.setIcon(new ImageIcon(iconoCancel.getScaledInstance(btCancelar.getWidth(), btCancelar.getWidth(), Image.SCALE_SMOOTH)));
 
         /////////////////////////////////////////////////
@@ -151,8 +151,8 @@ public class frmReg_Cli extends javax.swing.JFrame {
         jtTele.setToolTipText("digita Celular");
 
         btGuardar.setToolTipText("GUARDAR_CLIENTE");
-        btCancelar.setToolTipText("CANCELAR_CLIENTE");
-        bt_nvocli.setText("NUEVO_CLIENTE");
+        btCancelar.setToolTipText("LIMPIAR_CLIENTE");
+        bt_nvocli.setToolTipText("ELIMINAR_CLIENTE");
         btSalir.setToolTipText("SALIR");
         btVer_todo.setToolTipText("VER TODO");
 
