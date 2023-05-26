@@ -25,7 +25,7 @@ public class menufac extends javax.swing.JFrame {
     int[] id = {1, 2, 3, 4};
     String[] ruta = {"/IMAG/gransol.jpg"};
 
-    public static String[] selec = {"Efectivo", "Tarjeta D."};
+    public static String[] selec = {"Efectivo", "Tarjeta D."};//Crear selecion de tipo de pago
 
     //public static ArrayList<String> productos = new ArrayList<>();
 
@@ -39,13 +39,13 @@ public class menufac extends javax.swing.JFrame {
         Image facImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/gransol.jpg"));
         setIconImage(facImage);//AGREGAR IMAGEN A UN JLABEL A UN LADO COMO PRESENTACION
 
-        setLocation(500, 100);
+        setLocation(500, 100);//localizacion ventana
 
         initComponents();
        
        
 
-        getContentPane().setBackground(Color.GRAY);
+        getContentPane().setBackground(Color.GRAY);// Fondo de ventada color
 
         setLocation(200, 50);//Centrar o Ubicar Ventana
         stev_c();
@@ -69,7 +69,7 @@ public class menufac extends javax.swing.JFrame {
         modelo.setModel(tabla_st);
         actualizartabla();
         calcprecio();
-
+        // definir nombre de columnas de tabla y que sea visible para los datos 
     }
     
 public boolean buscarvent(venta nueva) {
