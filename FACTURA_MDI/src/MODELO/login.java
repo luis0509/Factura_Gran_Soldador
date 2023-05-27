@@ -14,40 +14,40 @@ import javax.swing.JOptionPane;
 
 
 public class login extends javax.swing.JFrame {
-mysql_conect db = new mysql_conect();        
-  public static int anchofond=130, altofond=80;
-  public static int anchofond2=450, altofond2=300;
+mysql_conect db = new mysql_conect(); //Llamamos y declaramos la conexion a la BD       
+  public static int anchofond=130, altofond=80;//Para dar tamaño a imagen
+  public static int anchofond2=450, altofond2=300;//Asginacion de tamaño a imagen
     public login() {
         setLocation(500, 100);
         this.setUndecorated(true);
         initComponents();         
-        jpanelfondo();        
+        jpanelfondo(); //Metodos       
         fond();
         titulo();
         loginuser();
         botonesmenu(); 
         jtuser_pass();
         Image facImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMAG/gransol.jpg"));
-        setIconImage(facImage);
+        setIconImage(facImage);//Icono de la Ventana
     }
     
-    public void fond (){
+    public void fond (){//Declaracion de Metodos
         ImageIcon imafond = new
-        ImageIcon(getClass().getResource("/IMAG/gransol.jpg"));
+        ImageIcon(getClass().getResource("/IMAG/gransol.jpg"));//Ruta para la imagen asignada al JLabel
         ImageIcon mitadfond = new
-        ImageIcon(imafond.getImage().getScaledInstance(anchofond2,altofond2,
+        ImageIcon(imafond.getImage().getScaledInstance(anchofond2,altofond2,//LLamado al tamaño asignado a la imagen
         Image.SCALE_DEFAULT));
         lbl_fotofon.setIcon(mitadfond);
         lbl_fotofon.setText("");
     }
     
     public void jpanelfondo(){               
-        jp_fondo.setBackground(Color.black);
+        jp_fondo.setBackground(Color.black);//Fondo del Panel
                
     }
 
     public void titulo(){
-        lbl_titulo.setFont(new java.awt.Font("Tahoma", 3 , 15));
+        lbl_titulo.setFont(new java.awt.Font("Tahoma", 3 , 15));//Tipo de letra
         lbl_titulo.setText("Inicio de Sesion");
         lbl_titulo.setForeground(Color.yellow);
     }
@@ -207,7 +207,7 @@ mysql_conect db = new mysql_conect();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingActionPerformed
-        String pass = new String(jp_clave.getPassword());
+        String pass = new String(jp_clave.getPassword());//Condicion de ingreso al Login
         if (jt_user.getText().equals(Users.usr1) && pass.equals(Users.clave1)){
             JOptionPane.showMessageDialog(this,"ACCESO CORRECTO");
             db.MySQLConnection("root", "", "ba_gransoldi");            
