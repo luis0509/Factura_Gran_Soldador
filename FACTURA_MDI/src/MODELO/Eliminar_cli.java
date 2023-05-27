@@ -6,21 +6,21 @@ public class Eliminar_cli extends javax.swing.JFrame {
 mysql_conect sqdel = new mysql_conect();
 
     public Eliminar_cli() {
-        setLocation(500, 150);
+        setLocation(500, 150);//Ubicacion de la ventana
         initComponents();
-        menu();
+        menu();//Llamada de Eventos
         cont();
     }
 
-    public void menu() {
-        menuBar_delete.add(fileMenu_del);
+    public void menu() {//Eventos
+        menuBar_delete.add(fileMenu_del);//Agregamos el menuitem a la barra de menu
 
-        fileMenu_del.setText("Opcion");
-        fileMenu_del.setMnemonic('O');
+        fileMenu_del.setText("Opcion");//modificacion de texto
+        fileMenu_del.setMnemonic('O');//Evento para ingresar por tecla con alt+"la letra"
 
         sal_delcli.setText("Salir");
         sal_delcli.setMnemonic('S');
-        sal_delcli.addActionListener(new java.awt.event.ActionListener() {           
+        sal_delcli.addActionListener(new java.awt.event.ActionListener() { //Evento para abrir ventana asignada          
             public void actionPerformed(ActionEvent ae) {
                 frmReg_Cli regcli = new frmReg_Cli();
                 regcli.setVisible(true);
@@ -31,7 +31,7 @@ mysql_conect sqdel = new mysql_conect();
     
     public void cont(){
         lbl_borrar.setText("ID: ");
-        lbl_borrar.setFont(new java.awt.Font("Tahoma",3,18));
+        lbl_borrar.setFont(new java.awt.Font("Tahoma",3,18));//asignacion de tipo de letra
         btn_borrar.setText("Eliminar");
         btn_borrar.setFont(new java.awt.Font("Tahoma",3,10));
         jtf_borrar.setText("");
@@ -40,10 +40,10 @@ mysql_conect sqdel = new mysql_conect();
         btn_borrar.addActionListener(new java.awt.event.ActionListener() {
             
             public void actionPerformed(ActionEvent ae) {
-                sqdel.MySQLConnection("root", "", "ba_gransoldi");
-                sqdel.deleteRecord("clientes", jtf_borrar.getText());
+                sqdel.MySQLConnection("root", "", "ba_gransoldi");//conexion a la base de BD
+                sqdel.deleteRecord("clientes", jtf_borrar.getText());//Eliminar item buscado en la BD
                 jtf_borrar.setText("");
-                sqdel.closeConnection();
+                sqdel.closeConnection();//Cierre de Conexion
             }
         });
         
