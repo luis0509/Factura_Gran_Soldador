@@ -18,8 +18,8 @@ public class producto extends javax.swing.JFrame {
         
         
         initComponents(); 
-        setLocation(500, 100);        
-        panelprod();
+        setLocation(500, 100);  //Posicion de ventana      
+        panelprod();//Metodos
         compon();
         Jtable_Prod();
         labelprod();
@@ -28,8 +28,8 @@ public class producto extends javax.swing.JFrame {
         setIconImage(facImage);
     }
     
-    private void labelprod(){
-        lblprod.setFont(new java.awt.Font("Tahoma", 3, 11));
+    private void labelprod(){//Declaracion metodos
+        lblprod.setFont(new java.awt.Font("Tahoma", 3, 11));//Tipo de letra
         lblprod.setText("P R O D U C T O S");
         //MARGEN PARA EL LABEL
 //        Border margen = BorderFactory.createLineBorder(Color.red, 1);
@@ -39,7 +39,7 @@ public class producto extends javax.swing.JFrame {
     private void labelimagenprod(){   
        
     ImageIcon imaprod = new
-    ImageIcon(getClass().getResource("/IMAG/gransol.jpg"));
+    ImageIcon(getClass().getResource("/IMAG/gransol.jpg"));//Ruta para la imagen asignada al JLabel
     ImageIcon mitad_a = new
     ImageIcon(imaprod.getImage().getScaledInstance(anchoprod, altoprod,
     Image.SCALE_DEFAULT));
@@ -52,17 +52,17 @@ public class producto extends javax.swing.JFrame {
 
     private void panelprod(){
         jpprod.setLocation(400, 500);
-        jpprod.setBackground(Color.yellow);
+        jpprod.setBackground(Color.yellow);//Color Fondo
     }
     private void compon(){
         ActionListener salirprod  = new ActionListener(){
         @Override
-        public void actionPerformed(ActionEvent ae) {
-            //System.exit(0);
+        public void actionPerformed(ActionEvent ae) {//Evento para ir a ventana asignada
+            
             menMarket prod_v = new menMarket();
             prod_v.setVisible(true);
-            dispose();
-            //setvisible(true);
+            dispose();//Cerrar ventana para liberar cache
+            
     }
         
     };    
@@ -79,8 +79,8 @@ public class producto extends javax.swing.JFrame {
     btn_obtener.addActionListener(new java.awt.event.ActionListener() {            
             public void actionPerformed(ActionEvent ae) {
             
-                db.MySQLConnection("root", "", "mysql_conect");                
-                db.getValues2("productos");
+                db.MySQLConnection("root", "", "mysql_conect");  //Conexion a BD              
+                db.getValues2("productos");//Llamado a BD para obtener los valores
                // db.closeConnection();
                 
             }
